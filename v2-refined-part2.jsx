@@ -590,9 +590,13 @@ const Footer = ({ T }) => (
           </div>
         ))}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 20, fontFamily: 'Sora, system-ui', fontSize: 12.5, color: COLORS.inkSoft }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap', paddingTop: 20, fontFamily: 'Sora, system-ui', fontSize: 12.5, color: COLORS.inkSoft }}>
         <span>© 2026 Scandex+ Serviços Digitais</span>
-        <span style={{ fontStyle: 'italic' }}>Powered by ScandexPRO™</span>
+        <span style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
+          <a href="/politica-de-privacidade.html" style={{ color: COLORS.inkSoft, textDecoration: 'none' }}>Privacidade</a>
+          <a href="/exclusao-de-dados.html" style={{ color: COLORS.inkSoft, textDecoration: 'none' }}>Exclusão de dados</a>
+          <span style={{ fontStyle: 'italic' }}>Powered by ScandexPRO™</span>
+        </span>
       </div>
     </div>
   </footer>
