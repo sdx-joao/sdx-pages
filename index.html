@@ -1,968 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<!-- skill:chrome -->
+<meta charset="utf-8" />
+<title>Scandex+ — Landing Page</title>
+<link rel="icon" type="image/png" href="assets/submarca.png" />
+<link rel="apple-touch-icon" href="assets/submarca.png" />
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#3B7BA8"/><text x="100" y="112" font-size="64" font-family="sans-serif" fill="white" text-anchor="middle">S+</text></svg></template>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Credit line — bottom-right */
-.design-ui-credit {
-  position: fixed;
-  bottom: 12px;
-  right: 12px;
-  font: 11px/1 system-ui, sans-serif;
-  color: rgba(128,128,128,0.5);
-  pointer-events: none;
-  z-index: 2147483647;
-  transition: opacity 0.4s ease;
-  user-select: none;
-  letter-spacing: 0.02em;
-}
-
-/* Hide chrome on touch devices */
-@media (hover: none) {
-  .design-ui-credit { display: none; }
-}
-
-/* Print fixes */
-@media print {
-  * {
-    transition: none !important;
-    animation: none !important;
-    box-shadow: none !important;
+  html, body { margin: 0; padding: 0; background: #F6F7F9; }
+  * { box-sizing: border-box; }
+  button { transition: filter 0.2s, transform 0.2s, box-shadow 0.2s; }
+  button:hover { filter: brightness(0.96); }
+  a { transition: opacity 0.2s; }
+  a:hover { opacity: 0.6; }
+  ::selection { background: #3B7BA8; color: white; }
+  @keyframes sdxpulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%      { transform: scale(1.5); opacity: 0.6; }
   }
-  body {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
+  @media (max-width: 760px) {
+    [data-sdx="nav"]{padding:10px 14px!important;margin:8px 8px 0!important}
+    [data-sdx="nav-links"]{display:none!important}
+    [data-sdx="nav-cta-text"]{display:none!important}
+    [data-sdx="hero"]{grid-template-columns:1fr!important;min-height:auto!important;padding:0!important;gap:0!important}
+    [data-sdx="hero-left"]{padding:88px 20px 32px!important}
+    [data-sdx="hero-left"] h1{font-size:40px!important;line-height:1.05!important}
+    [data-sdx="hero-left"] p{font-size:15px!important;margin-top:20px!important}
+    [data-sdx="hero-right"]{padding:14px!important;border-radius:0!important;min-height:320px!important}
+    [data-sdx="hero-mosaic"]{min-height:280px!important;gap:8px!important}
+    [data-sdx="metrics-section"]{padding:64px 20px!important}
+    [data-sdx="metrics-section"] h2{font-size:32px!important}
+    [data-sdx="metrics-grid-1"]{grid-template-columns:1fr!important;margin-top:40px!important}
+    [data-sdx="metrics-grid-1"]>div{border-right:none!important;padding:24px 0!important}
+    [data-sdx="metrics-grid-2"]{grid-template-columns:1fr!important}
+    [data-sdx="metrics-grid-2"]>div{border-right:none!important;border-bottom:1px solid rgba(255,255,255,0.12)!important;padding:24px 0!important}
+    [data-sdx="about-section"]{padding:64px 20px!important}
+    [data-sdx="about-section"] h2{font-size:32px!important}
+    [data-sdx="about-grid"]{grid-template-columns:1fr!important;gap:40px!important}
+    [data-sdx="about-visual"]{height:380px!important}
+    [data-sdx="pro-section"]{padding:64px 20px!important}
+    [data-sdx="pro-section"] h2{font-size:30px!important}
+    [data-sdx="pro-grid"]{grid-template-columns:1fr!important;gap:32px!important}
+    [data-sdx="pro-tabs"]{overflow-x:auto!important;max-width:100%!important}
+    [data-sdx="services-section"]{padding:64px 20px!important}
+    [data-sdx="services-header-grid"]{grid-template-columns:1fr!important;gap:20px!important}
+    [data-sdx="services-header-grid"] h2{font-size:32px!important}
+    [data-sdx="services-main-grid"]{grid-template-columns:1fr!important;padding:14px!important}
+    [data-sdx="services-items-grid"]{grid-template-columns:1fr!important}
+    [data-sdx="stack-section"]{padding:64px 20px!important}
+    [data-sdx="stack-section"] h2{font-size:32px!important}
+    [data-sdx="stack-grid"]{grid-template-columns:1fr 1fr!important}
+    [data-sdx="stack-grid"]>div{border-right:none!important;border-bottom:1px solid #E2E8EE!important}
+    [data-sdx="cta-box"]{padding:48px 24px!important;border-radius:20px!important}
+    [data-sdx="cta-grid"]{grid-template-columns:1fr!important;gap:24px!important}
+    [data-sdx="cta-grid"] h2{font-size:34px!important}
+    [data-sdx="cta-decor"]{display:none!important}
+    [data-sdx="footer-grid"]{grid-template-columns:1fr!important;gap:28px!important}
   }
-  .design-ui-credit { display: none !important; }
-}
-
 </style>
-<script>
-(function () {
-    // Chrome UI (hover devices only): credit badge with idle-fade.
-    // Deferred until body exists since the script may run in <head>.
-    function initChromeUI() {
-        if (!matchMedia('(hover: hover)').matches) return;
-
-        var credit = document.createElement('div');
-        credit.className = 'design-ui-credit';
-        credit.setAttribute('aria-hidden', 'true');
-        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
-        document.body.appendChild(credit);
-
-        var timer = null;
-        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
-        fade(true);
-        var show = function () {
-            fade(false);
-            clearTimeout(timer);
-            timer = setTimeout(function () { fade(true); }, 3000);
-        };
-        document.addEventListener('mousemove', show);
-        show();
-    }
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initChromeUI);
-    } else {
-        initChromeUI();
-    }
-})();
-
-</script>
-<!-- /skill:chrome -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Solicitação de Recursos - Instituto Social SeLiga</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --green-dark: oklch(35% 0.12 145);
-            --green-main: oklch(45% 0.14 145);
-            --green-medium: oklch(52% 0.13 145);
-            --green-light: oklch(92% 0.03 145);
-            --green-border: oklch(75% 0.08 145);
-            --orange-main: oklch(65% 0.18 55);
-            --orange-dark: oklch(55% 0.16 55);
-            --orange-light: oklch(90% 0.05 55);
-            --neutral-50: oklch(98% 0.003 145);
-            --neutral-100: oklch(96% 0.005 145);
-            --neutral-200: oklch(92% 0.005 145);
-            --neutral-300: oklch(85% 0.005 145);
-            --neutral-500: oklch(55% 0.005 145);
-            --neutral-700: oklch(35% 0.005 145);
-            --neutral-900: oklch(20% 0.005 145);
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
-            --radius-pill: 999px;
-        }
-
-        body {
-            font-family: 'Montserrat', system-ui, sans-serif;
-            background: var(--neutral-200);
-            color: var(--neutral-900);
-            line-height: 1.5;
-            font-size: 14px;
-            min-height: 100vh;
-            padding: 32px 16px;
-        }
-
-        .form-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--neutral-50);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 4px 24px oklch(20% 0.01 145 / 0.08);
-        }
-
-        /* Header */
-        .form-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 32px 40px;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-
-.logo-img{
-    width:240px;
-    height:auto;
-    display:block;
-    object-fit:contain;
-}
-@media (max-width:768px){
-    .logo-img{width:180px;}
-}
-
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .logo-text .top {
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #2D7A3A;
-            letter-spacing: 0.01em;
-        }
-
-        .logo-text .bottom {
-            font-size: 1.7rem;
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -0.02em;
-        }
-
-        .logo-text .bottom .se { color: #2D7A3A; }
-        .logo-text .bottom .l { color: #E8720C; }
-        .logo-text .bottom .iga { color: #2D7A3A; }
-
-        .header-title {
-            text-align: right;
-        }
-
-        .header-title h1 {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--green-dark);
-            line-height: 1.2;
-            letter-spacing: -0.01em;
-        }
-
-        .header-title p {
-            font-size: 0.8rem;
-            color: var(--neutral-500);
-            margin-top: 4px;
-            max-width: 320px;
-            margin-left: auto;
-        }
-
-        /* Sections */
-        .form-body {
-            padding: 0 40px 32px;
-        }
-
-        .section {
-            margin-bottom: 28px;
-            border: 1.5px solid var(--green-border);
-            border-radius: var(--radius-md);
-            padding: 28px 24px 24px;
-            position: relative;
-        }
-
-        .section-header {
-            position: absolute;
-            top: -14px;
-            left: 16px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--green-dark);
-            color: white;
-            padding: 4px 16px;
-            border-radius: var(--radius-pill);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-        }
-
-        .section-header svg {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-        }
-
-        .section--dados::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--orange-main);
-            border-radius: var(--radius-md) var(--radius-md) 0 0;
-        }
-
-        /* Form grid */
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .form-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .form-row--full {
-            grid-template-columns: 1fr;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--neutral-700);
-            margin-bottom: 6px;
-        }
-
-        .form-group label .required {
-            color: var(--orange-main);
-            margin-left: 2px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1.5px solid var(--neutral-300);
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 0.82rem;
-            color: var(--neutral-700);
-            background: white;
-            transition: border-color 200ms cubic-bezier(0.25, 1, 0.5, 1);
-            outline: none;
-        }
-
-        .form-group input::placeholder,
-        .form-group select::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--neutral-300);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--green-main);
-        }
-
-        .form-group select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            padding-right: 36px;
-        }
-
-        /* Section 2 - Recursos */
-        .recursos-description {
-            font-size: 0.8rem;
-            color: var(--neutral-500);
-            margin-bottom: 16px;
-        }
-
-        .recursos-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        .recurso-card {
-            border: 1.5px solid var(--green-border);
-            border-radius: var(--radius-md);
-            padding: 20px 16px 16px;
-            text-align: center;
-        }
-
-        .recurso-card__icon {
-            width: 40px;
-            height: 40px;
-            margin: 0 auto 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            border: 2px solid var(--green-border);
-        }
-
-        .recurso-card__icon svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--green-main);
-        }
-
-        .recurso-card__title {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .recurso-card:nth-child(1) .recurso-card__title { color: var(--green-dark); }
-        .recurso-card:nth-child(2) .recurso-card__title { color: var(--orange-main); }
-        .recurso-card:nth-child(3) .recurso-card__title { color: var(--green-dark); }
-
-        .recurso-card__desc {
-            font-size: 0.7rem;
-            color: var(--neutral-500);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .radio-group {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.75rem;
-            color: var(--neutral-700);
-            cursor: pointer;
-        }
-
-        .radio-option input[type="radio"] {
-            width: 14px;
-            height: 14px;
-            accent-color: var(--green-main);
-            cursor: pointer;
-        }
-
-        /* Section 3 - Justificativa */
-        .textarea-wrapper {
-            position: relative;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .char-count {
-            text-align: right;
-            font-size: 0.7rem;
-            color: var(--neutral-500);
-            margin-top: 4px;
-        }
-
-        /* Section 4 - Data */
-        .date-row {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .date-row label {
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--neutral-700);
-            white-space: nowrap;
-        }
-
-        .date-row label .required {
-            color: var(--orange-main);
-        }
-
-        .date-row input {
-            max-width: 220px;
-            padding: 10px 14px;
-            border: 1.5px solid var(--neutral-300);
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 0.82rem;
-            color: var(--neutral-700);
-            background: white;
-            outline: none;
-        }
-
-        .date-row input:focus {
-            border-color: var(--green-main);
-        }
-
-        /* Section 5 - Aprovações */
-        .aprovacoes-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 24px;
-        }
-
-        .aprovacao-col {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .aprovacao-col h4 {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin-bottom: 14px;
-            text-align: center;
-            min-height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .aprovacao-col:nth-child(1) h4 { color: var(--neutral-700); }
-        .aprovacao-col:nth-child(2) h4 { color: var(--orange-main); }
-        .aprovacao-col:nth-child(3) h4 { color: var(--neutral-700); }
-
-        .aprovacao-col .form-group {
-            margin-bottom: 12px;
-        }
-
-        .aprovacao-col .form-group label {
-            font-size: 0.72rem;
-        }
-
-        .assinatura-box {
-            width: 100%;
-            height: 80px;
-            border: 1.5px solid var(--neutral-300);
-            border-radius: var(--radius-sm);
-            background: white;
-        }
-
-        /* Footer disclaimer */
-        .form-disclaimer {
-            margin: 0 40px;
-            padding: 16px 20px;
-            background: var(--green-light);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 0;
-        }
-
-        .form-disclaimer svg {
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
-            stroke: var(--green-main);
-            margin-top: 2px;
-        }
-
-        .form-disclaimer p {
-            font-size: 0.72rem;
-            color: var(--neutral-700);
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        .form-footer {
-            margin-top: 24px;
-            background: var(--green-dark);
-            padding: 16px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-
-        .footer-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: white;
-            font-size: 0.72rem;
-            font-weight: 500;
-        }
-
-        .footer-item svg {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-        }
-
-        .footer-separator {
-            width: 1px;
-            height: 20px;
-            background: oklch(60% 0.02 145);
-        }
-
-
-        /* Terms section */
-        .terms-box {
-            max-height: 210px;
-            overflow-y: auto;
-            padding: 22px 26px;
-            border: 1.5px solid var(--neutral-300);
-            border-radius: var(--radius-sm);
-            background: white;
-            color: var(--neutral-700);
-            font-size: 0.82rem;
-            line-height: 1.7;
-            margin-bottom: 18px;
-        }
-
-        .terms-box h3 {
-            color: var(--neutral-900);
-            font-size: 0.95rem;
-            font-weight: 800;
-            margin-bottom: 14px;
-        }
-
-        .terms-box ol {
-            padding-left: 20px;
-        }
-
-        .terms-box li {
-            margin-bottom: 10px;
-        }
-
-        .terms-accept {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 0.9rem;
-            color: var(--neutral-700);
-            line-height: 1.5;
-            cursor: pointer;
-        }
-
-        .terms-accept input {
-            width: 18px;
-            height: 18px;
-            min-width: 18px;
-            margin-top: 2px;
-            accent-color: var(--green-main);
-            cursor: pointer;
-        }
-
-
-        /* Submit area */
-        .submit-area {
-            padding: 0 40px 28px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .submit-button {
-            appearance: none;
-            border: none;
-            border-radius: var(--radius-pill);
-            background: var(--green-dark);
-            color: white;
-            font-family: inherit;
-            font-weight: 800;
-            font-size: 0.9rem;
-            letter-spacing: 0.03em;
-            padding: 14px 32px;
-            cursor: pointer;
-            transition: transform 160ms ease, opacity 160ms ease;
-            min-width: 240px;
-        }
-
-        .submit-button:hover {
-            transform: translateY(-1px);
-        }
-
-        .submit-button:disabled {
-            cursor: not-allowed;
-            opacity: 0.65;
-            transform: none;
-        }
-
-        .submit-status {
-            min-height: 20px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            text-align: center;
-            color: var(--neutral-700);
-        }
-
-        .submit-status--success {
-            color: var(--green-dark);
-        }
-
-        .submit-status--error {
-            color: var(--orange-dark);
-        }
-
-        /* Print styles */
-        @media print {
-            body { padding: 0; background: white; }
-            .form-wrapper { box-shadow: none; border-radius: 0; }
-            .assinatura-box { height: 80px; }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            body { padding: 16px 8px; }
-            .form-header { padding: 24px 20px; flex-direction: column; text-align: center; }
-            .header-title { text-align: center; }
-            .header-title p { margin-left: 0; }
-            .form-body { padding: 0 20px 24px; }
-            .section { padding: 24px 16px 20px; }
-            .form-row { grid-template-columns: 1fr; }
-            .recursos-grid { grid-template-columns: 1fr; }
-            .aprovacoes-grid { grid-template-columns: 1fr; }
-            .form-disclaimer { margin: 0 20px; }
-            .form-footer { padding: 16px 20px; gap: 16px; }
-            .submit-area { padding: 0 20px 24px; }
-            .submit-button { width: 100%; }
-            .footer-separator { display: none; }
-        }
-
-        @media (max-width: 480px) {
-            .form-header h1 { font-size: 1.3rem; }
-        }
-    </style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="v2-refined-part1.jsx"></script>
+<script type="text/babel" src="v2-refined-part2.jsx"></script>
 </head>
 <body>
-    <div class="form-wrapper">
-        <!-- Header -->
-        <div class="form-header">
-            <div class="logo-area">
-                <img src="logo.png" alt="Instituto Social SeLiga" class="logo-img">
-            </div>
-            <div class="header-title">
-                <h1>FORMULÁRIO DE<br>SOLICITAÇÃO DE RECURSOS</h1>
-                <p>Utilize este formulário para solicitar os recursos necessários para suas atividades institucionais.</p>
-            </div>
-        </div>
+<div id="root"></div>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "primary": "#3B7BA8",
+  "accent": "#9CC8D6",
+  "headline": "controle",
+  "patternIntensity": 1
+}/*EDITMODE-END*/;
 
-        <div class="form-body">
-            <!-- Section 1: Dados do Colaborador -->
-            <div class="section section--dados">
-                <div class="section-header">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    1. DADOS DO COLABORADOR
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Nome do colaborador <span class="required">*</span></label>
-                        <input id="nome" type="text" placeholder="Digite seu nome completo" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Matrícula <span class="required">*</span></label>
-                        <input id="matricula" type="text" placeholder="Digite sua matrícula" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Cargo <span class="required">*</span></label>
-                        <input id="cargo" type="text" placeholder="Digite seu cargo" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Setor <span class="required">*</span></label>
-                        <select id="setor" required>
-                            <option value="" disabled selected>Selecione seu setor</option>
-                            <option>Administrativo</option>
-                            <option>Financeiro</option>
-                            <option>Recursos Humanos</option>
-                            <option>Tecnologia da Informação</option>
-                            <option>Comunicação</option>
-                            <option>Projetos Sociais</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row form-row--full">
-                    <div class="form-group">
-                        <label>Gestor responsável <span class="required">*</span></label>
-                        <input id="gestor" type="text" placeholder="Digite o nome do seu gestor" required>
-                    </div>
-                </div>
-            </div>
+const { Nav, Hero, Metrics } = window.SDXP;
+const { About, ScandexPro, Services, Stack, CTA, Footer } = window.SDXP_Sections;
 
-            <!-- Section 2: Recursos Solicitados -->
-            <div class="section">
-                <div class="section-header">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    2. RECURSOS SOLICITADOS
-                </div>
-                <p class="recursos-description">Selecione os recursos necessários para o desempenho de suas atividades.</p>
-                <div class="recursos-grid">
-                    <div class="recurso-card">
-                        <div class="recurso-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                        <div class="recurso-card__title">E-mail Institucional</div>
-                        <div class="recurso-card__desc">Conta de e-mail corporativo (@institutosocialseliga.com.br)</div>
-                        <div class="radio-group">
-                            <label class="radio-option"><input type="radio" name="email" value="sim"> Sim</label>
-                            <label class="radio-option"><input type="radio" name="email" value="nao"> Não</label>
-                        </div>
-                    </div>
-                    <div class="recurso-card">
-                        <div class="recurso-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        </div>
-                        <div class="recurso-card__title">Telefone Corporativo</div>
-                        <div class="recurso-card__desc">Linha telefônica para uso institucional</div>
-                        <div class="radio-group">
-                            <label class="radio-option"><input type="radio" name="telefone" value="sim"> Sim</label>
-                            <label class="radio-option"><input type="radio" name="telefone" value="nao"> Não</label>
-                        </div>
-                    </div>
-                    <div class="recurso-card">
-                        <div class="recurso-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                        </div>
-                        <div class="recurso-card__title">WhatsApp Corporativo</div>
-                        <div class="recurso-card__desc">Acesso ao WhatsApp Business institucional</div>
-                        <div class="radio-group">
-                            <label class="radio-option"><input type="radio" name="whatsapp" value="sim"> Sim</label>
-                            <label class="radio-option"><input type="radio" name="whatsapp" value="nao"> Não</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+function App() {
+  const [T, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  return (
+    <div style={{ background: '#F6F7F9', minHeight: '100vh' }}>
+      <Nav T={T} />
+      <Hero T={T} />
+      <Metrics T={T} />
+      <About T={T} />
+      <ScandexPro T={T} />
+      <Services T={T} />
+      <Stack T={T} />
+      <CTA T={T} />
+      <Footer T={T} />
 
-            <!-- Section 3: Justificativa -->
-            <div class="section">
-                <div class="section-header">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    3. JUSTIFICATIVA
-                </div>
-                <p class="recursos-description">Descreva a necessidade dos recursos solicitados e como eles contribuirão para o trabalho institucional.</p>
-                <div class="form-group">
-                    <div class="textarea-wrapper">
-                        <textarea id="justificativa" placeholder="Digite aqui sua justificativa..." maxlength="500" oninput="updateCharCount()"></textarea>
-                    </div>
-                    <div class="char-count"><span id="charCount">0</span>/500 caracteres</div>
-                </div>
-            </div>
+      <TweaksPanel>
+        <TweakSection label="Identidade" />
+        <TweakColor label="Cor primária" value={T.primary}
+                    onChange={(v) => setTweak('primary', v)} />
+        <TweakColor label="Cor de acento" value={T.accent}
+                    onChange={(v) => setTweak('accent', v)} />
 
-            <!-- Section 4: Data da Solicitação -->
-            <div class="section">
-                <div class="section-header">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    4. DATA DA SOLICITAÇÃO
-                </div>
-                <div class="date-row">
-                    <label>Data da solicitação <span class="required">*</span></label>
-                    <input id="dataSolicitacao" type="date" required>
-                </div>
-            </div>
+        <TweakSection label="Headline" />
+        <TweakRadio label="Variação de copy" value={T.headline}
+                    options={['controle', 'papel', 'futuro']}
+                    onChange={(v) => setTweak('headline', v)} />
 
-            <!-- Section 5: Termos de Uso e Aceite -->
-            <div class="section">
-                <div class="section-header">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    5. TERMOS DE USO E ACEITE
-                </div>
-
-                <div class="terms-box">
-                    <h3>Termos e Condições de Uso dos Recursos Corporativos</h3>
-                    <ol>
-                        <li>Os recursos solicitados (e-mail institucional, telefone corporativo e WhatsApp corporativo) são de propriedade do Instituto Social Seliga e devem ser utilizados exclusivamente para fins institucionais.</li>
-                        <li>O colaborador compromete-se a não compartilhar credenciais de acesso com terceiros, mantendo sigilo sobre senhas e informações confidenciais.</li>
-                        <li>É vedado o uso dos recursos corporativos para fins pessoais, comerciais externos ou qualquer atividade que viole as políticas internas da instituição.</li>
-                        <li>O Instituto Social Seliga reserva-se o direito de monitorar o uso dos recursos concedidos, em conformidade com a legislação vigente e a LGPD.</li>
-                        <li>Em caso de desligamento ou mudança de função, os recursos serão revogados imediatamente, devendo o colaborador devolver quaisquer equipamentos associados.</li>
-                        <li>O descumprimento destes termos poderá acarretar medidas administrativas e disciplinares, conforme o regimento interno.</li>
-                        <li>O colaborador declara estar ciente de que todas as comunicações realizadas por meio dos recursos corporativos podem ser auditadas.</li>
-                    </ol>
-                </div>
-
-                <label class="terms-accept">
-                    <input id="termosAceitos" type="checkbox">
-                    <span><strong>Declaro que li e aceito os termos de uso dos recursos corporativos</strong> do Instituto Social Seliga, comprometendo-me a utilizá-los de acordo com as políticas internas da instituição.</span>
-                </label>
-            </div>
-        </div>
-
-
-        <div class="submit-area">
-            <button id="submitButton" class="submit-button" type="button" onclick="enviarFormulario()" disabled>Enviar Solicitação</button>
-            <div id="submitStatus" class="submit-status" aria-live="polite"></div>
-        </div>
-
-        <!-- Disclaimer -->
-        <div class="form-disclaimer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <p><strong>Todos os recursos solicitados estão sujeitos às políticas internas do Instituto Social Seliga.</strong><br>As aprovações serão realizadas conforme o fluxo de gestão de acessos e recursos corporativos.</p>
-        </div>
-
-        <!-- Footer -->
-        <div class="form-footer">
-            <div class="footer-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                Conectar pessoas
-            </div>
-            <div class="footer-separator"></div>
-            <div class="footer-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                Transformar vidas
-            </div>
-            <div class="footer-separator"></div>
-            <div class="footer-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                institutosocialseliga.org.com
-            </div>
-            <div class="footer-separator"></div>
-            <div class="footer-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                ti@institutosocialseliga.com.br
-            </div>
-        </div>
+        <TweakSection label="Decoração" />
+        <TweakSlider label="Intensidade do pattern" value={T.patternIntensity}
+                     min={0} max={2} step={0.1}
+                     onChange={(v) => setTweak('patternIntensity', v)} />
+      </TweaksPanel>
     </div>
+  );
+}
 
-    <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRGUPOQLCK4eZQ27SsiIxzPQQYWBnD-I5KYuy04twipdnZmq4VpeNqW8qygNhXQnOQ/exec";
-
-        function updateCharCount() {
-            const textarea = document.getElementById('justificativa');
-            const count = document.getElementById('charCount');
-            count.textContent = textarea.value.length;
-        }
-
-        function getRadioValue(name) {
-            return document.querySelector(`input[name="${name}"]:checked`)?.value || "";
-        }
-
-        function setStatus(message, type) {
-            const status = document.getElementById("submitStatus");
-            status.textContent = message;
-            status.className = "submit-status";
-            if (type) status.classList.add(`submit-status--${type}`);
-        }
-
-        function validarCamposObrigatorios() {
-            const obrigatorios = [
-                ["nome", "Nome do colaborador"],
-                ["matricula", "Matrícula"],
-                ["cargo", "Cargo"],
-                ["setor", "Setor"],
-                ["gestor", "Gestor responsável"],
-                ["dataSolicitacao", "Data da solicitação"]
-            ];
-
-            for (const [id, label] of obrigatorios) {
-                const campo = document.getElementById(id);
-                if (!campo || !campo.value.trim()) {
-                    campo?.focus();
-                    setStatus(`Preencha o campo obrigatório: ${label}.`, "error");
-                    return false;
-                }
-            }
-
-            const termosAceitos = document.getElementById("termosAceitos");
-            if (!termosAceitos || !termosAceitos.checked) {
-                termosAceitos?.focus();
-                setStatus("É necessário aceitar os termos de uso antes de enviar.", "error");
-                return false;
-            }
-
-            return true;
-        }
-
-        async function enviarFormulario() {
-            if (!validarCamposObrigatorios()) return;
-
-            const botao = document.getElementById("submitButton");
-            botao.disabled = true;
-            botao.textContent = "Enviando...";
-            setStatus("Enviando solicitação, aguarde...", "");
-
-            const dados = {
-                nome: document.getElementById("nome").value.trim(),
-                matricula: document.getElementById("matricula").value.trim(),
-                cargo: document.getElementById("cargo").value.trim(),
-                setor: document.getElementById("setor").value,
-                gestor: document.getElementById("gestor").value.trim(),
-                email: getRadioValue("email"),
-                telefone: getRadioValue("telefone"),
-                whatsapp: getRadioValue("whatsapp"),
-                justificativa: document.getElementById("justificativa").value.trim(),
-                dataSolicitacao: document.getElementById("dataSolicitacao").value,
-                termosAceitos: document.getElementById("termosAceitos").checked ? "Sim" : "Não"
-            };
-
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: {
-                        "Content-Type": "text/plain;charset=utf-8"
-                    },
-                    body: JSON.stringify(dados)
-                });
-
-                setStatus("Solicitação enviada com sucesso.", "success");
-                botao.textContent = "Solicitação Enviada";
-
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1800);
-            } catch (error) {
-                console.error(error);
-                setStatus("Não foi possível enviar. Verifique a conexão e tente novamente.", "error");
-                botao.disabled = false;
-                botao.textContent = "Enviar Solicitação";
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const dataSolicitacao = document.getElementById("dataSolicitacao");
-            const termos = document.getElementById("termosAceitos");
-            const botao = document.getElementById("submitButton");
-            if (dataSolicitacao && !dataSolicitacao.value) dataSolicitacao.value = new Date().toISOString().split("T")[0];
-            if (termos && botao){
-              botao.disabled=!termos.checked;
-              termos.addEventListener("change",()=>botao.disabled=!termos.checked);
-            }
-        });
-    </script>
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
 </body>
 </html>
