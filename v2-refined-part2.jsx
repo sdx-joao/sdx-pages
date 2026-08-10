@@ -549,7 +549,7 @@ const CTA = ({ T }) => (
             }}>contato@scandexplus.com.br</button>
           </div>
           <div style={{ marginTop: 22, fontFamily: 'JetBrains Mono, monospace', fontSize: 12.5, color: 'rgba(255,255,255,0.7)' }}>
-            +55 (32) 9 8765-4321 · seg-sex 9h-18h
+            +55 (21) 96721-6375 · seg-sex 9h-18h
           </div>
         </Reveal>
 
@@ -578,7 +578,7 @@ const Footer = ({ T }) => (
         {[
           { t: 'Serviços', items: ['Software sob medida', 'Digitalização (GED)', 'Automação', 'Consultoria', 'Suporte'] },
           { t: 'Empresa',  items: ['Sobre', 'Manifesto', 'Equipe', 'Carreiras', 'Imprensa'] },
-          { t: 'Contato',  items: ['contato@scandexplus.com.br', '+55 (32) 9 8765-4321', 'Belo Horizonte, MG'] },
+          { t: 'Contato',  items: ['contato@scandexplus.com.br', '+55 (21) 96721-6375', 'Duque de Caxias - RJ'] },
         ].map((col, i) => (
           <div key={i}>
             <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10.5, color: T.primary, textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: 12 }}>
