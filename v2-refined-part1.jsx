@@ -195,8 +195,14 @@ const Nav = ({ T }) => {
     }}>
       <Wordmark size={20} accent={T.primary} />
       <div data-sdx="nav-links" style={{ display: 'flex', gap: 28, fontFamily: 'Sora, system-ui', fontSize: 13.5, fontWeight: 500, color: COLORS.ink }}>
-        {['Sobre', 'Soluções', 'Serviços', 'Tecnologia'].map(x => (
-          <a key={x} style={{ color: 'inherit', textDecoration: 'none' }}>{x}</a>
+        {[
+          { label: 'Sobre', href: '#sobre' },
+          { label: 'Servus', href: 'servus.html' },
+          { label: 'Prontus', href: 'prontus.html' },
+          { label: 'Serviços', href: '#servicos' },
+          { label: 'Tecnologia', href: '#tecnologia' },
+        ].map(item => (
+          <a key={item.label} href={item.href} style={{ color: 'inherit', textDecoration: 'none' }}>{item.label}</a>
         ))}
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -206,7 +212,7 @@ const Nav = ({ T }) => {
           padding: '11px 16px', borderRadius: 999, border: `1px solid ${COLORS.line}`,
           whiteSpace: 'nowrap',
         }}>Área do cliente</a>
-        <button style={{
+        <button onClick={() => window.open('https://wa.me/5521984426872', '_blank', 'noopener,noreferrer')} style={{
           background: T.primary, color: 'white', border: 'none',
           padding: '11px 20px', borderRadius: 999,
           fontFamily: 'Sora, system-ui', fontSize: 13, fontWeight: 600,
@@ -281,7 +287,7 @@ const Hero = ({ T }) => {
             </p>
 
             <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
-              <button style={{
+              <button onClick={() => window.open('https://wa.me/5521984426872', '_blank', 'noopener,noreferrer')} style={{
                 background: T.primary, color: 'white', border: 'none',
                 padding: '17px 26px', borderRadius: 12,
                 fontFamily: 'Sora, system-ui', fontSize: 14.5, fontWeight: 600,

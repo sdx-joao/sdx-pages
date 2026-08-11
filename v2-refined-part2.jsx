@@ -5,7 +5,7 @@ const { COLORS, ArrowPlus, Wordmark, Pattern, WhatsappIcon, Reveal, CountUp } = 
 // ABOUT
 // ─────────────────────────────────────────────────────────────────────
 const About = ({ T }) => (
-  <section data-sdx="about-section" style={{ padding: '120px 40px', background: 'white' }}>
+  <section id="sobre" data-sdx="about-section" style={{ padding: '120px 40px', background: 'white' }}>
     <div data-sdx="about-grid" style={{ maxWidth: 1400, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
       <Reveal>
         <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: T.primary, textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: 24 }}>
@@ -290,7 +290,7 @@ const SERVICES = [
 const Services = ({ T }) => {
   const [active, setActive] = React.useState(0);
   return (
-    <section data-sdx="services-section" style={{ padding: '120px 40px', background: 'white' }}>
+    <section id="servicos" data-sdx="services-section" style={{ padding: '120px 40px', background: 'white' }}>
       <div style={{ maxWidth: 1400, margin: '0 auto' }}>
         <Reveal>
           <div data-sdx="services-header-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, marginBottom: 48 }}>
@@ -415,7 +415,7 @@ const STACK = [
 ];
 
 const Stack = ({ T }) => (
-  <section data-sdx="stack-section" style={{ padding: '120px 40px', background: COLORS.paper }}>
+  <section id="tecnologia" data-sdx="stack-section" style={{ padding: '120px 40px', background: COLORS.paper }}>
     <div style={{ maxWidth: 1400, margin: '0 auto' }}>
       <Reveal>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 48, gap: 40, flexWrap: 'wrap' }}>
@@ -529,7 +529,7 @@ const CTA = ({ T }) => (
             Pode ser um arquivo físico, uma planilha que cresceu demais ou uma rotina que não conversa com os outros sistemas. Entendemos o cenário antes de propor produto, integração ou desenvolvimento sob medida.
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
-            <button style={{
+            <button onClick={() => window.open('https://wa.me/5521984426872', '_blank', 'noopener,noreferrer')} style={{
               background: 'white', color: T.primary, border: 'none',
               padding: '20px 32px', borderRadius: 12,
               fontFamily: 'Sora, system-ui', fontSize: 15.5, fontWeight: 700,

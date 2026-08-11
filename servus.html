@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Servus — App de Ordens de Serviço e Inventário | Scandex+</title>
+<link rel="icon" type="image/png" href="assets/servus-icon.png" />
+<link rel="apple-touch-icon" href="assets/servus-icon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#3B7BA8"/><text x="100" y="112" font-size="56" font-family="sans-serif" fill="white" text-anchor="middle">Sv</text></svg></template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F6F7F9}
+*{box-sizing:border-box}
+button{transition:filter .2s,transform .2s,box-shadow .2s;cursor:pointer}
+button:hover{filter:brightness(0.96)}
+a{color:#3B7BA8;transition:opacity .2s}
+a:hover{opacity:.7}
+::selection{background:#3B7BA8;color:#fff}
+@media (max-width:760px){
+[data-sv="nav-links"]{display:none!important}
+[data-sv="hero"]{grid-template-columns:1fr!important;padding:0 12px!important}
+[data-sv="hero-left"]{padding:88px 8px 32px!important}
+[data-sv="hero-left"] h1{font-size:56px!important}
+[data-sv="feature"]{grid-template-columns:1fr!important;gap:32px!important}
+[data-sv="feature-img"]{order:-1}
+[data-sv="specs-grid"]{grid-template-columns:1fr!important}
+[data-sv="cta-grid"]{grid-template-columns:1fr!important;gap:24px!important}
+}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="v2-refined-part1.jsx"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { COLORS, ArrowPlus, Wordmark, Pattern, WhatsappIcon, Reveal } = window.SDXP;
+const PRIMARY = COLORS.blue;
+const ACCENT = COLORS.blueLight;
+
+const Nav = () => (
+  <nav style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'14px 24px',background:'rgba(255,255,255,0.85)',backdropFilter:'blur(20px) saturate(140%)',position:'sticky',top:12,zIndex:30,margin:'12px 12px 0',border:`1px solid ${COLORS.line}`,borderRadius:999,boxShadow:'0 8px 32px rgba(15,22,32,0.06)'}}>
+    <a href="index.html" style={{display:'flex',alignItems:'center',gap:12,textDecoration:'none'}}>
+      <Wordmark size={18} />
+      <span style={{width:1,height:20,background:COLORS.line}}></span>
+      <span style={{fontFamily:'Sora, system-ui',fontWeight:700,fontSize:15,color:COLORS.ink}}>Servus</span>
+    </a>
+    <div data-sv="nav-links" style={{display:'flex',gap:24,fontFamily:'Sora, system-ui',fontSize:13.5,fontWeight:500}}>
+      <a href="index.html" style={{color:COLORS.ink,textDecoration:'none'}}>← Scandex+</a>
+      <a href="prontus.html" style={{color:COLORS.ink,textDecoration:'none'}}>Prontus™ →</a>
+    </div>
+    <div style={{display:'flex',alignItems:'center',gap:10}}>
+      <a href="https://docs.scandexplus.com.br/login" style={{color:COLORS.ink,textDecoration:'none',fontFamily:'Sora, system-ui',fontSize:13,fontWeight:600,padding:'11px 16px',borderRadius:999,border:`1px solid ${COLORS.line}`,whiteSpace:'nowrap'}}>Área do cliente</a>
+      <a href="https://wa.me/5521984426872" target="_blank" rel="noopener noreferrer" style={{background:PRIMARY,color:'white',border:'none',padding:'11px 20px',borderRadius:999,fontFamily:'Sora, system-ui',fontSize:13,fontWeight:600,textDecoration:'none',display:'inline-flex',alignItems:'center',gap:8}}>
+        <WhatsappIcon size={14} /><span>Falar agora</span>
+      </a>
+    </div>
+  </nav>
+);
+
+const Hero = () => (
+  <section data-sv="hero" style={{display:'grid',gridTemplateColumns:'1.2fr 1fr',minHeight:'calc(100vh - 60px)',padding:'0 12px',gap:12,alignItems:'center'}}>
+    <div data-sv="hero-left" style={{padding:'56px 40px 40px'}}>
+      <Reveal>
+        <div style={{display:'inline-flex',alignItems:'center',gap:10,padding:'7px 14px',background:'white',border:`1px solid ${COLORS.line}`,borderRadius:999,fontFamily:'JetBrains Mono, monospace',fontSize:11,color:COLORS.inkSoft,textTransform:'uppercase',letterSpacing:'0.1em'}}>
+          App móvel · Ecossistema ScandexPRO™
+        </div>
+      </Reveal>
+      <Reveal delay={100}>
+        <h1 style={{fontFamily:'Sora, system-ui',fontWeight:700,fontSize:'clamp(56px, 8vw, 108px)',lineHeight:0.95,letterSpacing:'-0.04em',color:COLORS.ink,margin:'32px 0 0'}}>
+          Servus
+        </h1>
+        <div style={{fontFamily:'"Fraunces", serif',fontStyle:'italic',fontWeight:300,fontSize:'clamp(22px, 2.6vw, 32px)',color:PRIMARY,marginTop:8}}>
+          Ordens de serviço e inventário, no bolso do técnico.
+        </div>
+      </Reveal>
+      <Reveal delay={200}>
+        <p style={{fontFamily:'Sora, system-ui',fontSize:17,lineHeight:1.6,color:COLORS.inkSoft,marginTop:28,maxWidth:480,textWrap:'pretty'}}>
+          App Android do ecossistema ScandexPRO™, feito para quem executa e gerencia
+          ordens de serviço e inventário em campo — com assinatura digital, leitura de
+          QR Code e sincronização em tempo real com o backend central.
+        </p>
+        <div style={{display:'flex',gap:12,marginTop:32,flexWrap:'wrap',alignItems:'center'}}>
+          <span style={{display:'inline-flex',alignItems:'center',gap:8,padding:'11px 18px',borderRadius:999,background:COLORS.blueTint,color:PRIMARY,fontFamily:'Sora, system-ui',fontSize:13,fontWeight:600}}>
+            Em breve na Google Play
+          </span>
+        </div>
+      </Reveal>
+    </div>
+    <Reveal delay={300}>
+      <div style={{display:'flex',justifyContent:'center',alignItems:'center',position:'relative'}}>
+        <div style={{position:'absolute',width:380,height:380,borderRadius:'50%',background:COLORS.blueTint,filter:'blur(10px)'}}></div>
+        <img src="assets/servus-icon.png" alt="Ícone do app Servus" style={{width:220,height:220,borderRadius:44,position:'relative',boxShadow:'0 30px 80px rgba(15,22,32,0.22)'}} />
+      </div>
+    </Reveal>
+  </section>
+);
+
+const FEATURES = [
+  {
+    eyebrow: 'Painel inicial',
+    title: 'Tudo o que importa, num só painel.',
+    body: 'Ordens ativas, abertas no dia, estoque baixo e itens em manutenção — o técnico abre o app e já sabe por onde começar.',
+    points: ['Contadores em tempo real de OS e inventário', 'Acesso direto aos módulos de Ordens de Serviço e Inventário', 'Alertas de estoque baixo em destaque'],
+    img: 'assets/screens/home-brand.png',
+  },
+  {
+    eyebrow: 'Ordens de serviço',
+    title: 'Criação, delegação e conclusão — tudo no fluxo.',
+    body: 'O técnico acompanha suas ordens do início ao fim: cria, recebe por delegação com notificação, atualiza o andamento e conclui com situação e solução adotada registradas.',
+    points: ['Regra de propriedade: só quem criou ou recebeu por delegação edita ou conclui', 'Delegação com mensagem e aviso automático ao destinatário', 'Destaque visual para ordens urgentes ou escaladas', 'Compartilhamento do PDF da ordem finalizada'],
+    img: 'assets/screens/orders.png',
+  },
+  {
+    eyebrow: 'Assinatura digital',
+    title: 'Conclusão com assinatura de técnico e solicitante.',
+    body: 'Cada ordem finalizada é assinada digitalmente por quem executou e por quem solicitou, direto na tela do app — com linha-guia no quadro de assinatura para reduzir erro de captura.',
+    points: ['Assinatura do técnico e do solicitante no mesmo fluxo', 'Situação e solução adotada registradas na conclusão', 'Solicitação de cancelamento com motivo obrigatório', 'Aprovação de cancelamento por quem gerencia'],
+    img: 'assets/screens/wo-detail.png',
+  },
+  {
+    eyebrow: 'Inventário via QR Code',
+    title: 'Cadastro de equipamento que começa pela etiqueta.',
+    body: 'O cadastro de qualquer item é iniciado pela leitura do QR Code da etiqueta. O local é estruturado por unidade e cômodo, alimentando o mapa de inventário no desktop.',
+    points: ['Cadastro sempre iniciado por leitura de etiqueta', 'Local estruturado: unidade e cômodo', 'Validação de todas as cópias de etiqueta coladas no equipamento', 'Cadastros pendentes ficam salvos localmente para retomar depois'],
+    img: 'assets/screens/inv-list.png',
+  },
+  {
+    eyebrow: 'Perfil e sessão',
+    title: 'Sessão do técnico, sob controle.',
+    body: 'Perfil, unidade e setor sempre visíveis, com logout seguro e dados de sessão vinculados ao mesmo login usado no desktop.',
+    points: ['Identificação de unidade e setor do técnico', 'Sessão vinculada ao backend central', 'Logout seguro em qualquer momento'],
+    img: 'assets/screens/profile-brand.png',
+  },
+];
+
+const PhoneFrame = ({ src, alt }) => (
+  <div style={{borderRadius:28,overflow:'hidden',boxShadow:'0 30px 80px rgba(15,22,32,0.22)',maxWidth:360,margin:'0 auto',border:`1px solid ${COLORS.line}`}}>
+    <img src={src} alt={alt} style={{width:'100%',display:'block'}} />
+  </div>
+);
+
+const Feature = ({ f, i }) => (
+  <section style={{padding:'80px 40px',background:i%2===0?'white':COLORS.paper}}>
+    <div data-sv="feature" style={{maxWidth:1200,margin:'0 auto',display:'grid',gridTemplateColumns:i%2===0?'1fr 1fr':'1fr 1fr',gap:64,alignItems:'center'}}>
+      <div style={{order:i%2===0?0:2}}>
+        <Reveal>
+          <div style={{fontFamily:'JetBrains Mono, monospace',fontSize:11,color:PRIMARY,textTransform:'uppercase',letterSpacing:'0.16em',marginBottom:20}}>
+            ─── {f.eyebrow}
+          </div>
+          <h2 style={{fontFamily:'"Fraunces", serif',fontWeight:300,fontStyle:'italic',fontSize:'clamp(28px, 3.2vw, 40px)',lineHeight:1.2,letterSpacing:'-0.02em',color:COLORS.ink,margin:0}}>
+            {f.title}
+          </h2>
+          <p style={{fontFamily:'Sora, system-ui',fontSize:16,lineHeight:1.6,color:COLORS.inkSoft,marginTop:22,textWrap:'pretty'}}>
+            {f.body}
+          </p>
+          <div style={{marginTop:26,display:'grid',gap:10}}>
+            {f.points.map((p,k)=>(
+              <div key={k} style={{display:'flex',alignItems:'flex-start',gap:12,padding:'12px 16px',background:i%2===0?COLORS.paper:'white',borderRadius:10,border:`1px solid ${COLORS.line}`,fontFamily:'Sora, system-ui',fontSize:13.5,color:COLORS.ink}}>
+                <span style={{width:20,height:20,borderRadius:6,background:COLORS.blueTint,color:PRIMARY,display:'flex',alignItems:'center',justifyContent:'center',fontSize:12,fontWeight:700,flexShrink:0,marginTop:1}}>✓</span>
+                {p}
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+      <div data-sv="feature-img" style={{order:i%2===0?2:0}}>
+        <Reveal delay={150}><PhoneFrame src={f.img} alt={f.eyebrow} /></Reveal>
+      </div>
+    </div>
+  </section>
+);
+
+const SPECS = [
+  { t:'Plataforma', b:'Android, via Expo / React Native. Login por token com sessão segura.' },
+  { t:'Integração', b:'Conectado ao backend central do ecossistema ScandexPRO™, com dados sincronizados em tempo real.' },
+  { t:'Segurança', b:'Bloqueio por biometria, notificações push com deep link e telemetria sem dados pessoais.' },
+  { t:'Atualizações', b:'Atualizações OTA para mudanças de app, com aviso discreto de nova versão disponível.' },
+];
+
+const Specs = () => (
+  <section style={{padding:'100px 40px',background:COLORS.ink,color:'white',position:'relative',overflow:'hidden'}}>
+    <Pattern surface="dark" opacity={0.16} scale={1.4} />
+    <div style={{maxWidth:1200,margin:'0 auto',position:'relative'}}>
+      <Reveal>
+        <div style={{fontFamily:'JetBrains Mono, monospace',fontSize:11,color:ACCENT,textTransform:'uppercase',letterSpacing:'0.18em',marginBottom:20}}>
+          ─── Especificações
+        </div>
+        <h2 style={{fontFamily:'Sora, system-ui',fontWeight:700,fontSize:'clamp(32px, 4vw, 48px)',lineHeight:1.1,letterSpacing:'-0.03em',color:'white',margin:0,maxWidth:700}}>
+          Feito para operar em campo, o dia inteiro.
+        </h2>
+      </Reveal>
+      <div data-sv="specs-grid" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',marginTop:56,borderTop:'1px solid rgba(255,255,255,0.14)'}}>
+        {SPECS.map((s,i)=>(
+          <Reveal key={i} delay={i*80}>
+            <div style={{padding:'28px 24px 28px 0',paddingLeft:i>0?24:0,borderRight:i<3?'1px solid rgba(255,255,255,0.14)':'none'}}>
+              <div style={{fontFamily:'Sora, system-ui',fontWeight:600,fontSize:15,color:'white'}}>{s.t}</div>
+              <div style={{fontFamily:'Sora, system-ui',fontSize:13.5,color:'rgba(255,255,255,0.62)',marginTop:10,lineHeight:1.55}}>{s.b}</div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const CTA = () => (
+  <section style={{padding:'20px 12px'}}>
+    <div style={{padding:'72px 48px',background:PRIMARY,color:'white',borderRadius:28,position:'relative',overflow:'hidden'}}>
+      <Pattern surface="dark" opacity={0.28} scale={1.4} />
+      <div data-sv="cta-grid" style={{position:'relative',display:'grid',gridTemplateColumns:'1.4fr 1fr',gap:48,alignItems:'center'}}>
+        <Reveal>
+          <h2 style={{fontFamily:'Sora, system-ui',fontWeight:700,fontSize:'clamp(32px, 4.5vw, 56px)',lineHeight:1.05,letterSpacing:'-0.03em',color:'white',margin:0}}>
+            Quer levar o Servus<br/>para a sua operação?
+          </h2>
+          <p style={{fontFamily:'Sora, system-ui',fontSize:16,lineHeight:1.55,color:'rgba(255,255,255,0.85)',marginTop:22,maxWidth:480}}>
+            Fale com a equipe Scandex+ ou acesse a área do cliente para conhecer o ecossistema ScandexPRO™ completo.
+          </p>
+          <div style={{display:'flex',gap:12,marginTop:32,flexWrap:'wrap'}}>
+            <a href="https://docs.scandexplus.com.br/login" style={{background:'white',color:PRIMARY,textDecoration:'none',padding:'18px 28px',borderRadius:12,fontFamily:'Sora, system-ui',fontSize:14.5,fontWeight:700,display:'inline-flex',alignItems:'center',gap:10,boxShadow:'0 12px 40px rgba(0,0,0,0.18)'}}>
+              Área do cliente →
+            </a>
+            <a href="https://wa.me/5521984426872" target="_blank" rel="noopener noreferrer" style={{background:'rgba(255,255,255,0.14)',color:'white',border:'1px solid rgba(255,255,255,0.3)',textDecoration:'none',padding:'18px 28px',borderRadius:12,fontFamily:'Sora, system-ui',fontSize:14.5,fontWeight:600}}>
+              contato@scandexplus.com.br
+            </a>
+          </div>
+          <div style={{marginTop:20,fontFamily:'JetBrains Mono, monospace',fontSize:12.5,color:'rgba(255,255,255,0.7)'}}>
+            +55 (21) 98442-6872
+          </div>
+        </Reveal>
+        <div style={{display:'flex',justifyContent:'center'}}>
+          <ArrowPlus size={220} color={ACCENT} opacity={0.5} />
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const Footer = () => (
+  <footer style={{padding:'32px 40px',background:'white',borderTop:`1px solid ${COLORS.line}`}}>
+    <div style={{maxWidth:1200,margin:'0 auto',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:12,fontFamily:'Sora, system-ui',fontSize:12.5,color:COLORS.inkSoft}}>
+      <span>© 2026 Scandex+ Serviços Digitais</span>
+      <span style={{fontStyle:'italic'}}>Servus faz parte do ecossistema ScandexPRO™</span>
+    </div>
+  </footer>
+);
+
+function App() {
+  return (
+    <div style={{background:'#F6F7F9',minHeight:'100vh'}}>
+      <Nav />
+      <Hero />
+      {FEATURES.map((f,i)=><Feature key={i} f={f} i={i} />)}
+      <Specs />
+      <CTA />
+      <Footer />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
