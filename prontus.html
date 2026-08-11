@@ -74,14 +74,14 @@ const Hero = () => (
           Prontus
         </h1>
         <div style={{fontFamily:'"Fraunces", serif',fontStyle:'italic',fontWeight:300,fontSize:'clamp(22px, 2.6vw, 32px)',color:PRIMARY,marginTop:8}}>
-          Prontuários digitalizados, ao alcance da mão.
+          A informação clínica certa, quando cada segundo importa.
         </div>
       </Reveal>
       <Reveal delay={200}>
         <p style={{fontFamily:'Sora, system-ui',fontSize:17,lineHeight:1.6,color:COLORS.inkSoft,marginTop:28,maxWidth:480,textWrap:'pretty'}}>
-          App móvel do ecossistema ScandexPRO™ focado em prontuários: busca de paciente,
-          visualização de cirurgias e documentos, e leitura de prontuários digitalizados —
-          conectado ao mesmo backend usado pela equipe clínica.
+          O Prontus aproxima profissionais da história que orienta cada decisão.
+          Menos tempo procurando. Mais tempo compreendendo. Uma nova forma de acessar
+          o que o cuidado não pode esperar.
         </p>
         <div style={{display:'flex',gap:12,marginTop:32,flexWrap:'wrap',alignItems:'center'}}>
           <span style={{display:'inline-flex',alignItems:'center',gap:8,padding:'11px 18px',borderRadius:999,background:COLORS.blueTint,color:PRIMARY,fontFamily:'Sora, system-ui',fontSize:13,fontWeight:600}}>
@@ -102,8 +102,8 @@ const Hero = () => (
 const Disclaimer = () => (
   <div style={{maxWidth:1200,margin:'0 auto',padding:'0 40px'}}>
     <div style={{fontFamily:'Sora, system-ui',fontSize:13,fontStyle:'italic',color:COLORS.inkSoft,padding:'16px 20px',background:COLORS.blueTint,borderRadius:12,maxWidth:720}}>
-      Prontus está em desenvolvimento. A tela de busca de paciente já é real; as demais
-      usam o mesmo padrão visual do ecossistema ScandexPRO™ como referência de interface.
+      Prontus está em evolução. As imagens apresentam a direção de uma experiência criada
+      para tornar a informação clínica mais próxima, segura e natural.
     </div>
   </div>
 );
@@ -111,37 +111,37 @@ const Disclaimer = () => (
 const FEATURES = [
   {
     eyebrow: 'Busca de paciente',
-    title: 'Encontre o paciente certo em segundos.',
-    body: 'Busca rápida por nome, prontuário ou identificador, com resultado direto para o histórico do paciente — o ponto de partida de todo o fluxo do app.',
-    points: ['Busca por número de prontuário ou CPF válido', 'Indicação visual do status por cor', 'Mesma base de dados usada pela equipe clínica'],
+    title: 'Comece pela pessoa, não pelo arquivo.',
+    body: 'Quando a busca desaparece, sobra espaço para compreender o histórico e seguir com mais confiança.',
+    points: ['O paciente em primeiro plano', 'Menos fricção para encontrar', 'Contexto que chega junto'],
     img: 'assets/screens/prontus-busca-paciente.jpeg',
   },
   {
     eyebrow: 'Cirurgias e documentos',
-    title: 'Visualização de cirurgias e documentos do paciente.',
-    body: 'Cada cirurgia e documento associado ao paciente fica disponível para consulta, com visualização otimizada para tela do celular.',
-    points: ['Lista de cirurgias e documentos por paciente', 'Visualização otimizada para leitura em tela pequena', 'Acesso rastreável, dentro das mesmas regras de permissão do backend'],
+    title: 'Uma trajetória que faz sentido à primeira vista.',
+    body: 'Eventos e documentos deixam de ser peças isoladas e passam a contar uma história clínica contínua.',
+    points: ['Histórico com contexto', 'Leitura mais natural', 'Informação sem ruído'],
     img: 'assets/screens/doc-full.png',
   },
   {
     eyebrow: 'Prontuários digitalizados',
-    title: 'Leitura de prontuários digitalizados, direto no app.',
-    body: 'Os prontuários digitalizados no Hospital do Olho Júlio Cândido de Brito ficam disponíveis para leitura, sem depender de estar na estação de trabalho.',
-    points: ['Leitura de prontuários digitalizados em qualquer lugar', 'Zoom e navegação otimizados para documentos escaneados', 'Conteúdo sincronizado com o acervo digitalizado'],
+    title: 'O acervo deixa a estante. O conhecimento permanece.',
+    body: 'Décadas de informação ganham uma experiência compatível com a velocidade do atendimento atual.',
+    points: ['Memória que acompanha', 'Detalhes ao alcance do gesto', 'Continuidade entre passado e presente'],
     img: 'assets/screens/doc-view.png',
   },
   {
     eyebrow: 'Login seguro',
-    title: 'Acesso protegido por token e biometria.',
-    body: 'Login por token assinado, com bloqueio por biometria quando o aparelho possui biometria cadastrada — pensado para dados sensíveis de saúde.',
-    points: ['Login por token assinado', 'Bloqueio por biometria no dispositivo', 'Sem armazenamento de dados sensíveis fora do app'],
+    title: 'Simples para quem pode. Fechado para quem não deve.',
+    body: 'A proteção trabalha em silêncio para que a experiência continue leve sem tratar privacidade como detalhe.',
+    points: ['Entrada sem atrito', 'Proteção discreta', 'Confiança desde o primeiro acesso'],
     img: 'assets/screens/login-brand.png',
   },
   {
     eyebrow: 'Perfil e sessão',
-    title: 'Perfil vinculado à equipe clínica.',
-    body: 'Perfil, unidade e setor sempre visíveis, com a mesma referência visual usada nos demais apps do ecossistema ScandexPRO™.',
-    points: ['Identificação de unidade e setor', 'Sessão vinculada ao backend central', 'Logout seguro em qualquer momento'],
+    title: 'Cada pessoa vê o que precisa para cuidar melhor.',
+    body: 'Uma experiência que entende o papel do profissional e reduz tudo o que não ajuda na decisão.',
+    points: ['Contexto profissional', 'Jornada mais direta', 'Coerência em todo o ecossistema'],
     img: 'assets/screens/profile-brand.png',
   },
 ];
@@ -184,10 +184,10 @@ const Feature = ({ f, i }) => (
 );
 
 const SPECS = [
-  { t:'Plataforma', b:'Android e iOS, via Expo / React Native. Base derivada do mesmo app de Ordens de Serviço.' },
-  { t:'Integração', b:'Conectado ao backend central do ecossistema ScandexPRO™, usado no Hospital do Olho Júlio Cândido de Brito.' },
-  { t:'Segurança', b:'Login por token assinado, com armazenamento seguro de credenciais no dispositivo.' },
-  { t:'Distribuição', b:'Toda mudança gera novo build — sem atualização automática por OTA neste app.' },
+  { t:'Mobilidade', b:'A informação acompanha o cuidado sem prender o profissional a uma estação.' },
+  { t:'Continuidade', b:'Uma experiência conectada ao ecossistema que preserva a história clínica.' },
+  { t:'Privacidade', b:'Proteção incorporada à jornada, sem transformar segurança em obstáculo.' },
+  { t:'Futuro', b:'Um produto em evolução para aproximar tecnologia e decisão clínica.' },
 ];
 
 const Specs = () => (
@@ -199,7 +199,7 @@ const Specs = () => (
           ─── Especificações
         </div>
         <h2 style={{fontFamily:'Sora, system-ui',fontWeight:700,fontSize:'clamp(32px, 4vw, 48px)',lineHeight:1.1,letterSpacing:'-0.03em',color:'white',margin:0,maxWidth:700}}>
-          Feito para dados sensíveis, com o rigor que a saúde exige.
+          Tecnologia que respeita a sensibilidade de cada história.
         </h2>
       </Reveal>
       <div data-pr="specs-grid" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',marginTop:56,borderTop:'1px solid rgba(255,255,255,0.14)'}}>
@@ -226,7 +226,7 @@ const CTA = () => (
             Quer levar o Prontus<br/>para a sua equipe clínica?
           </h2>
           <p style={{fontFamily:'Sora, system-ui',fontSize:16,lineHeight:1.55,color:'rgba(255,255,255,0.85)',marginTop:22,maxWidth:480}}>
-            Fale com a equipe Scandex+ ou acesse a área do cliente para conhecer o ecossistema ScandexPRO™ completo.
+            Veja como a informação certa pode chegar antes da dúvida e permanecer quando a decisão não pode esperar.
           </p>
           <div style={{display:'flex',gap:12,marginTop:32,flexWrap:'wrap'}}>
             <a href="https://docs.scandexplus.com.br/login" style={{background:'white',color:PRIMARY,textDecoration:'none',padding:'18px 28px',borderRadius:12,fontFamily:'Sora, system-ui',fontSize:14.5,fontWeight:700,display:'inline-flex',alignItems:'center',gap:10,boxShadow:'0 12px 40px rgba(0,0,0,0.18)'}}>

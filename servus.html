@@ -74,14 +74,14 @@ const Hero = () => (
           Servus
         </h1>
         <div style={{fontFamily:'"Fraunces", serif',fontStyle:'italic',fontWeight:300,fontSize:'clamp(22px, 2.6vw, 32px)',color:PRIMARY,marginTop:8}}>
-          Ordens de serviço e inventário, no bolso do técnico.
+          O trabalho acontece em campo. O controle acompanha.
         </div>
       </Reveal>
       <Reveal delay={200}>
         <p style={{fontFamily:'Sora, system-ui',fontSize:17,lineHeight:1.6,color:COLORS.inkSoft,marginTop:28,maxWidth:480,textWrap:'pretty'}}>
-          App Android do ecossistema ScandexPRO™, feito para quem executa e gerencia
-          ordens de serviço e inventário em campo — com assinatura digital, leitura de
-          QR Code e sincronização em tempo real com o backend central.
+          Menos desencontro. Menos retrabalho. Mais clareza para quem executa e para
+          quem precisa enxergar a operação. O Servus transforma cada atendimento em
+          uma história confiável — do chamado ao resultado.
         </p>
         <div style={{display:'flex',gap:12,marginTop:32,flexWrap:'wrap',alignItems:'center'}}>
           <span style={{display:'inline-flex',alignItems:'center',gap:8,padding:'11px 18px',borderRadius:999,background:COLORS.blueTint,color:PRIMARY,fontFamily:'Sora, system-ui',fontSize:13,fontWeight:600}}>
@@ -102,37 +102,37 @@ const Hero = () => (
 const FEATURES = [
   {
     eyebrow: 'Painel inicial',
-    title: 'Tudo o que importa, num só painel.',
-    body: 'Ordens ativas, abertas no dia, estoque baixo e itens em manutenção — o técnico abre o app e já sabe por onde começar.',
-    points: ['Contadores em tempo real de OS e inventário', 'Acesso direto aos módulos de Ordens de Serviço e Inventário', 'Alertas de estoque baixo em destaque'],
+    title: 'Abra o dia sabendo exatamente onde agir.',
+    body: 'O que exige atenção aparece primeiro. O restante deixa de competir com o que realmente move a operação.',
+    points: ['Prioridades que se revelam', 'Decisões com contexto', 'Uma rotina que começa organizada'],
     img: 'assets/screens/home-brand.png',
   },
   {
     eyebrow: 'Ordens de serviço',
-    title: 'Criação, delegação e conclusão — tudo no fluxo.',
-    body: 'O técnico acompanha suas ordens do início ao fim: cria, recebe por delegação com notificação, atualiza o andamento e conclui com situação e solução adotada registradas.',
-    points: ['Regra de propriedade: só quem criou ou recebeu por delegação edita ou conclui', 'Delegação com mensagem e aviso automático ao destinatário', 'Destaque visual para ordens urgentes ou escaladas', 'Compartilhamento do PDF da ordem finalizada'],
+    title: 'Cada chamado avança. Nada se perde no caminho.',
+    body: 'Da solicitação à entrega, todos enxergam o que importa — sem depender de mensagens soltas, memória ou conferência manual.',
+    points: ['Responsabilidade visível', 'Urgências que não passam despercebidas', 'Histórico pronto quando você precisar'],
     img: 'assets/screens/orders.png',
   },
   {
     eyebrow: 'Assinatura digital',
-    title: 'Conclusão com assinatura de técnico e solicitante.',
-    body: 'Cada ordem finalizada é assinada digitalmente por quem executou e por quem solicitou, direto na tela do app — com linha-guia no quadro de assinatura para reduzir erro de captura.',
-    points: ['Assinatura do técnico e do solicitante no mesmo fluxo', 'Situação e solução adotada registradas na conclusão', 'Solicitação de cancelamento com motivo obrigatório', 'Aprovação de cancelamento por quem gerencia'],
+    title: 'Entregou? Ficou claro para todos.',
+    body: 'O encerramento deixa de ser uma promessa informal e passa a carregar contexto, concordância e confiança.',
+    points: ['Evidência no momento certo', 'Confirmação sem papel', 'Mais segurança para a equipe e para o cliente'],
     img: 'assets/screens/wo-detail.png',
   },
   {
     eyebrow: 'Inventário via QR Code',
-    title: 'Cadastro de equipamento que começa pela etiqueta.',
-    body: 'O cadastro de qualquer item é iniciado pela leitura do QR Code da etiqueta. O local é estruturado por unidade e cômodo, alimentando o mapa de inventário no desktop.',
-    points: ['Cadastro sempre iniciado por leitura de etiqueta', 'Local estruturado: unidade e cômodo', 'Validação de todas as cópias de etiqueta coladas no equipamento', 'Cadastros pendentes ficam salvos localmente para retomar depois'],
+    title: 'Aponte. Reconheça. Saiba onde está.',
+    body: 'O patrimônio deixa de ser uma lista distante e passa a conversar com o ambiente onde o trabalho acontece.',
+    points: ['Identificação em segundos', 'Localização que faz sentido', 'Continuidade mesmo quando o dia interrompe'],
     img: 'assets/screens/inv-list.png',
   },
   {
     eyebrow: 'Perfil e sessão',
-    title: 'Sessão do técnico, sob controle.',
-    body: 'Perfil, unidade e setor sempre visíveis, com logout seguro e dados de sessão vinculados ao mesmo login usado no desktop.',
-    points: ['Identificação de unidade e setor do técnico', 'Sessão vinculada ao backend central', 'Logout seguro em qualquer momento'],
+    title: 'A experiência certa para cada profissional.',
+    body: 'O Servus reconhece o contexto de quem está trabalhando e entrega uma jornada mais direta, pessoal e segura.',
+    points: ['Contexto desde o primeiro toque', 'Acesso protegido', 'A mesma operação, sem rupturas'],
     img: 'assets/screens/profile-brand.png',
   },
 ];
@@ -175,10 +175,10 @@ const Feature = ({ f, i }) => (
 );
 
 const SPECS = [
-  { t:'Plataforma', b:'Android, via Expo / React Native. Login por token com sessão segura.' },
-  { t:'Integração', b:'Conectado ao backend central do ecossistema ScandexPRO™, com dados sincronizados em tempo real.' },
-  { t:'Segurança', b:'Bloqueio por biometria, notificações push com deep link e telemetria sem dados pessoais.' },
-  { t:'Atualizações', b:'Atualizações OTA para mudanças de app, com aviso discreto de nova versão disponível.' },
+  { t:'Presença', b:'A operação cabe no bolso e acompanha a equipe onde o serviço realmente acontece.' },
+  { t:'Conexão', b:'Campo e gestão passam a enxergar a mesma realidade, sem versões concorrentes da verdade.' },
+  { t:'Confiança', b:'Proteção e rastreabilidade na medida certa para rotinas sensíveis.' },
+  { t:'Evolução', b:'Um produto vivo, criado para melhorar junto com a operação.' },
 ];
 
 const Specs = () => (
@@ -190,7 +190,7 @@ const Specs = () => (
           ─── Especificações
         </div>
         <h2 style={{fontFamily:'Sora, system-ui',fontWeight:700,fontSize:'clamp(32px, 4vw, 48px)',lineHeight:1.1,letterSpacing:'-0.03em',color:'white',margin:0,maxWidth:700}}>
-          Feito para operar em campo, o dia inteiro.
+          A distância entre executar e controlar acabou.
         </h2>
       </Reveal>
       <div data-sv="specs-grid" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',marginTop:56,borderTop:'1px solid rgba(255,255,255,0.14)'}}>
@@ -217,7 +217,7 @@ const CTA = () => (
             Quer levar o Servus<br/>para a sua operação?
           </h2>
           <p style={{fontFamily:'Sora, system-ui',fontSize:16,lineHeight:1.55,color:'rgba(255,255,255,0.85)',marginTop:22,maxWidth:480}}>
-            Fale com a equipe Scandex+ ou acesse a área do cliente para conhecer o ecossistema ScandexPRO™ completo.
+            Descubra o que muda quando a informação passa a acompanhar o trabalho — e não o contrário.
           </p>
           <div style={{display:'flex',gap:12,marginTop:32,flexWrap:'wrap'}}>
             <a href="https://docs.scandexplus.com.br/login" style={{background:'white',color:PRIMARY,textDecoration:'none',padding:'18px 28px',borderRadius:12,fontFamily:'Sora, system-ui',fontSize:14.5,fontWeight:700,display:'inline-flex',alignItems:'center',gap:10,boxShadow:'0 12px 40px rgba(0,0,0,0.18)'}}>
