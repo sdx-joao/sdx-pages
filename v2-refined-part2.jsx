@@ -16,20 +16,20 @@ const About = ({ T }) => (
           fontSize: 'clamp(40px, 5vw, 64px)', lineHeight: 1.02,
           letterSpacing: '-0.035em', color: COLORS.ink, margin: 0,
         }}>
-          Empresa nova.<br/>
-          <span style={{ color: T.primary, fontFamily: '"Fraunces", serif', fontWeight: 300, fontStyle: 'italic' }}>Equipe que já tirou</span> mais de 1 milhão de documentos do papel.
+          Software house brasileira.<br/>
+          <span style={{ color: T.primary, fontFamily: '"Fraunces", serif', fontWeight: 300, fontStyle: 'italic' }}>Tecnologia criada</span> dentro da operação real.
         </h2>
         <p style={{
           fontFamily: 'Sora, system-ui', fontSize: 17, lineHeight: 1.6, color: COLORS.inkSoft, marginTop: 28, textWrap: 'pretty',
         }}>
-          A Scandex+ é uma marca recém-fundada — mas as pessoas por trás dela passaram a carreira inteira digitalizando arquivos: setor público, privado, contratos, prontuários, processos. Já vivemos auditorias resgatadas em cima da hora — e construímos os processos para que a próxima sequer precise de resgate. Agora juntamos essa bagagem a tecnologia própria, incluindo o <strong style={{ color: COLORS.ink, fontWeight: 600 }}>ScandexPRO™</strong>, nosso GED.
+          A Scandex+ combina experiência em digitalização e gestão documental com desenvolvimento de software. Nossos produtos nasceram de necessidades concretas: o <strong style={{ color: COLORS.ink, fontWeight: 600 }}>ScandexPRO™</strong> organiza documentos e a gestão administrativa; o <strong style={{ color: COLORS.ink, fontWeight: 600 }}>Servus</strong> leva serviços, inventário e estoque ao trabalho em campo; e o <strong style={{ color: COLORS.ink, fontWeight: 600 }}>Prontus</strong> torna a consulta operacional de prontuários mais simples e móvel.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginTop: 36 }}>
           {[
-            ['Especialização', 'Não somos generalistas que entraram em GED. Já nascemos especialistas.'],
+            ['Software house', 'Produtos próprios e sistemas sob medida, da descoberta à sustentação.'],
             ['Bagagem real', '+1 milhão de documentos digitalizados ao longo da carreira da equipe.'],
-            ['Refino', 'Sistemas que sua equipe entende sem manual — porque já passamos pelo seu lugar.'],
-            ['Conformidade', 'LGPD e retenção legal — domínio prático, forjado em auditoria real.'],
+            ['Refino', 'Sistemas desenhados com quem executa o trabalho todos os dias.'],
+            ['Integração', 'Uma base consistente entre web, Electron e aplicativos móveis.'],
           ].map(([t, b], i) => (
             <div key={i} style={{ borderTop: `2px solid ${T.primary}`, paddingTop: 14 }}>
               <div style={{ fontFamily: 'Sora, system-ui', fontWeight: 600, fontSize: 14.5, color: COLORS.ink, marginBottom: 6 }}>{t}</div>
@@ -54,7 +54,7 @@ const About = ({ T }) => (
               <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: COLORS.inkSoft }}>NOVA · ESTREIA 2026</div>
             </div>
             <div style={{ fontFamily: '"Fraunces", serif', fontSize: 22, lineHeight: 1.35, color: COLORS.ink, fontStyle: 'italic', fontWeight: 300 }}>
-              "Empresa nova é toda igual? Não a nossa. Já tiramos +1 milhão de documentos do papel — só faltava o nome."
+              "Não criamos telas isoladas. Criamos produtos que acompanham o trabalho do pedido à execução, da evidência à gestão."
             </div>
             <div style={{ marginTop: 20, fontFamily: 'Sora, system-ui', fontSize: 12, color: COLORS.inkSoft }}>— Manifesto Scandex+</div>
           </div>
@@ -71,7 +71,7 @@ const About = ({ T }) => (
             <div style={{ lineHeight: 1.7 }}>
               <span style={{ color: T.accent }}>+1M docs digitalizados</span><br/>
               <span style={{ color: T.accent }}>público + privado</span><br/>
-              <span style={{ color: T.accent }}>0 auditorias perdidas</span>
+              <span style={{ color: T.accent }}>3 produtos conectados</span>
             </div>
           </div>
         </div>
@@ -81,28 +81,28 @@ const About = ({ T }) => (
 );
 
 // ─────────────────────────────────────────────────────────────────────
-// SCANDEXPRO Solution Block
+// PRODUCT SUITE
 // ─────────────────────────────────────────────────────────────────────
 const ScandexPro = ({ T }) => {
   const [tab, setTab] = React.useState(0);
   const tabs = [
     {
-      label: 'Documentos',
-      title: 'Cada papel encontra o seu lugar.',
-      body: 'Captura, OCR, indexação automática e busca textual em milhões de documentos. Status visual por dot colorido, retenção configurável, trilha de auditoria por ação.',
-      points: ['OCR multi-idioma + indexação por código de barras', 'Visualização de TIFF, PDF/A e imagens', 'Status: disponível, processando, alterado, ausente', 'Permissões granulares por setor e por documento'],
+      label: 'ScandexPRO™',
+      title: 'A operação administrativa em uma base confiável.',
+      body: 'Plataforma web e desktop para gestão documental, prontuários, ordens de serviço, inventário e rotinas administrativas, com permissões, histórico e relatórios.',
+      points: ['GED e prontuários com vínculo persistente', 'Ordens de serviço e relatórios operacionais', 'Inventário, estoque, locais e movimentações', 'Acesso web e aplicativo Electron'],
     },
     {
-      label: 'Contratos',
-      title: 'Do template à assinatura, com trilha completa.',
-      body: 'Templates versionados, fluxo de aprovação configurável, alertas de vencimento e aditivos vinculados. Tudo conectado ao cadastro da contraparte.',
-      points: ['Templates versionados com placeholders', 'Workflow de aprovação multi-nível', 'Alertas de vencimento e renovação', 'Aditivos vinculados ao contrato-mãe'],
+      label: 'Servus',
+      title: 'Serviços, patrimônio e estoque na mão de quem executa.',
+      body: 'Aplicativo móvel para abrir, acompanhar e concluir ordens de serviço em campo, ler etiquetas, movimentar equipamentos e materiais e registrar evidências da execução.',
+      points: ['Leitura de QR e etiquetas patrimoniais', 'Instalação, retirada e troca de equipamentos', 'Inventário, estoque e alertas de reposição', 'Fotos, assinaturas e PDF da ordem de serviço'],
     },
     {
-      label: 'Auditoria',
-      title: 'Tudo rastreável. Tudo defensável.',
-      body: 'Cada visualização, edição e exportação registrada com usuário, IP, timestamp e dispositivo. Relatórios prontos para compliance, LGPD e auditoria externa.',
-      points: ['Trilha de auditoria imutável', 'Relatórios LGPD prontos para o DPO', 'Exportação para CSV / PDF assinado', 'Retenção legal configurável por tipo'],
+      label: 'Prontus',
+      title: 'Prontuários acessíveis onde o atendimento acontece.',
+      body: 'Experiência móvel voltada à consulta ágil de pacientes, cirurgias e documentos digitalizados, compartilhando a mesma autenticação e a mesma fonte de dados da plataforma central.',
+      points: ['Busca de pacientes e prontuários', 'Histórico de cirurgias e documentos vinculados', 'Visualização móvel de documentos clínicos', 'Sessão independente e acesso controlado'],
     },
   ];
 
@@ -114,15 +114,15 @@ const ScandexPro = ({ T }) => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 32, marginBottom: 48 }}>
             <div>
               <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: T.primary, textTransform: 'uppercase', letterSpacing: '0.18em', marginBottom: 24 }}>
-                ─── [02] Solução · ScandexPRO™
+                ─── [02] Ecossistema de soluções
               </div>
               <h2 style={{
                 fontFamily: 'Sora, system-ui', fontWeight: 700,
                 fontSize: 'clamp(40px, 5.5vw, 72px)', lineHeight: 1.0,
                 letterSpacing: '-0.04em', color: COLORS.ink, margin: 0, maxWidth: 900,
               }}>
-                O GED feito para quem<br/>
-                <span style={{ color: T.primary }}>gerencia documentos e contratos</span> a sério.
+                Três produtos. Uma base.<br/>
+                <span style={{ color: T.primary }}>Do administrativo ao trabalho em campo.</span>
               </h2>
             </div>
             <div style={{
@@ -131,7 +131,7 @@ const ScandexPro = ({ T }) => {
               borderRadius: 999, fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: COLORS.inkSoft,
               textTransform: 'uppercase', letterSpacing: '0.1em',
             }}>
-              GED · v3.2
+              Web · Desktop · Mobile
             </div>
           </div>
         </Reveal>
@@ -190,23 +190,23 @@ const ScandexPro = ({ T }) => {
                   {
                     img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80',
                     fallback: COLORS.blueDeep,
-                    eyebrow: 'Custódia · contratos · processos',
-                    headline: 'Tudo na nuvem.\nAcesso em segundos.',
-                    chips: ['Multi-formato', 'OCR pesquisável', 'Acesso por API'],
+                    eyebrow: 'Documentos · gestão · rastreabilidade',
+                    headline: 'Uma plataforma.\nUma fonte de verdade.',
+                    chips: ['Web + Electron', 'Relatórios', 'Permissões'],
                   },
                   {
                     img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80',
                     fallback: COLORS.ink,
-                    eyebrow: 'Versionamento · aditivos · assinatura',
-                    headline: 'Cada versão.\nCada cláusula.\nCada assinatura.',
-                    chips: ['Histórico v1 → v8', 'Diff por cláusula', 'Assinatura digital'],
+                    eyebrow: 'OS · inventário · execução móvel',
+                    headline: 'O serviço acontece.\nO histórico acompanha.',
+                    chips: ['QR e câmera', 'Estoque', 'Assinaturas'],
                   },
                   {
                     img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80',
                     fallback: COLORS.blueDeep,
-                    eyebrow: 'Quem · quando · de onde',
-                    headline: 'Trilha de auditoria\nimutável.',
-                    chips: ['LGPD · DPO ready', 'Logs imutáveis', 'Export auditável'],
+                    eyebrow: 'Pacientes · cirurgias · documentos',
+                    headline: 'A informação certa\nno ponto de cuidado.',
+                    chips: ['Consulta móvel', 'Histórico', 'Acesso controlado'],
                   },
                 ];
                 const v = VISUALS[tab];
@@ -283,8 +283,8 @@ const SERVICES = [
     items: ['RPA e workflows', 'BPMN customizado', 'APIs e webhooks', 'Aprovações e SLAs'] },
   { n: '04', title: 'Consultoria digital', short: 'Diagnóstico antes do código.',
     items: ['Mapa de sistemas atual', 'Roadmap 12-24 meses', 'Arquitetura técnica', 'Análise de compliance'] },
-  { n: '05', title: 'Suporte & manutenção', short: 'Sustentação contínua, plantão, SLA.',
-    items: ['Monitoramento 24/7', 'Plantão em operações críticas', 'SLAs de resposta', 'Patches de segurança'] },
+  { n: '05', title: 'Suporte & evolução', short: 'Sustentação próxima e melhoria contínua.',
+    items: ['Monitoramento e diagnóstico', 'Atualizações controladas', 'Correções e segurança', 'Evolução orientada pelo uso'] },
 ];
 
 const Services = ({ T }) => {
@@ -408,10 +408,10 @@ const Services = ({ T }) => {
 // STACK
 // ─────────────────────────────────────────────────────────────────────
 const STACK = [
-  { cat: 'Frontend',  icon: '◇', items: ['Next.js 15', 'React 18', 'TypeScript 5', 'Tailwind CSS', 'Electron 30', 'shadcn/ui'] },
-  { cat: 'Backend',   icon: '◈', items: ['Node.js 22', 'PostgreSQL 16', 'Redis 7', 'Prisma ORM', 'tRPC', 'BullMQ'] },
-  { cat: 'Infra',     icon: '◉', items: ['AWS EC2 + RDS', 'Docker', 'GitHub Actions', 'Cloudflare', 'Datadog', 'Sentry'] },
-  { cat: 'GED & OCR', icon: '◆', items: ['Tesseract OCR', 'Kofax Capture', 'TIFF / PDF/A', 'ZBar barcode', 'ImageMagick', 'PDFtk'] },
+  { cat: 'Web',       icon: '◇', items: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS', 'Radix UI', 'APIs HTTP'] },
+  { cat: 'Desktop',   icon: '◈', items: ['Electron 32', 'Windows', 'Auto-update', 'Impressão nativa', 'Watchdog', 'Acesso remoto'] },
+  { cat: 'Mobile',    icon: '◉', items: ['React Native', 'Expo', 'Android', 'Câmera e QR', 'Biometria', 'Deep links'] },
+  { cat: 'Backend',   icon: '◆', items: ['Node.js', 'MariaDB 11', 'Docker', 'Cloudflare', 'Integrações REST', 'Auditoria'] },
 ];
 
 const Stack = ({ T }) => (
@@ -518,16 +518,15 @@ const CTA = ({ T }) => (
             fontSize: 'clamp(44px, 5.5vw, 80px)', lineHeight: 0.98,
             letterSpacing: '-0.035em', color: 'white', margin: 0,
           }}>
-            Conta pra gente o<br/>
-            tamanho do seu legado.<br/>
-            <span style={{ color: T.accent, fontFamily: '"Fraunces", serif', fontWeight: 300, fontStyle: 'italic' }}>Devolvemos um plano em 24h.</span>
+            Conte o processo que<br/>
+            ainda trava sua equipe.<br/>
+            <span style={{ color: T.accent, fontFamily: '"Fraunces", serif', fontWeight: 300, fontStyle: 'italic' }}>Desenhamos um caminho possível.</span>
           </h2>
           <p style={{
             fontFamily: 'Sora, system-ui', fontSize: 17, lineHeight: 1.55,
             color: 'rgba(255,255,255,0.85)', marginTop: 28, maxWidth: 560,
           }}>
-            Diagnóstico inicial sem custo. Mande fotos do arquivo, screenshots do sistema atual
-            ou só descreva o problema — devolvemos um caminho técnico e uma estimativa.
+            Pode ser um arquivo físico, uma planilha que cresceu demais ou uma rotina que não conversa com os outros sistemas. Entendemos o cenário antes de propor produto, integração ou desenvolvimento sob medida.
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
             <button style={{
@@ -571,8 +570,7 @@ const Footer = ({ T }) => (
             fontFamily: 'Sora, system-ui', fontSize: 13.5, lineHeight: 1.55,
             color: COLORS.inkSoft, marginTop: 14, maxWidth: 320,
           }}>
-            Software house brasileira. Eficiência, tecnologia e refino para empresas
-            que precisam pôr a operação em ordem.
+            Software house brasileira responsável por ScandexPRO, Servus e Prontus — e por soluções sob medida para operações que precisam de clareza, integração e histórico.
           </p>
         </div>
         {[
@@ -590,13 +588,9 @@ const Footer = ({ T }) => (
           </div>
         ))}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap', paddingTop: 20, fontFamily: 'Sora, system-ui', fontSize: 12.5, color: COLORS.inkSoft }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 20, fontFamily: 'Sora, system-ui', fontSize: 12.5, color: COLORS.inkSoft }}>
         <span>© 2026 Scandex+ Serviços Digitais</span>
-        <span style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
-          <a href="/politica-de-privacidade.html" style={{ color: COLORS.inkSoft, textDecoration: 'none' }}>Privacidade</a>
-          <a href="/exclusao-de-dados.html" style={{ color: COLORS.inkSoft, textDecoration: 'none' }}>Exclusão de dados</a>
-          <span style={{ fontStyle: 'italic' }}>Powered by ScandexPRO™</span>
-        </span>
+        <span style={{ fontStyle: 'italic' }}>Powered by ScandexPRO™</span>
       </div>
     </div>
   </footer>
