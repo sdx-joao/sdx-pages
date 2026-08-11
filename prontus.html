@@ -49,8 +49,15 @@ const Nav = () => (
       <span style={{fontFamily:'Sora, system-ui',fontWeight:700,fontSize:15,color:COLORS.ink}}>Prontus</span>
     </a>
     <div data-pr="nav-links" style={{display:'flex',gap:24,fontFamily:'Sora, system-ui',fontSize:13.5,fontWeight:500}}>
-      <a href="index.html" style={{color:COLORS.ink,textDecoration:'none'}}>← Scandex+</a>
-      <a href="servus.html" style={{color:COLORS.ink,textDecoration:'none'}}>← Servus</a>
+      {[
+        {label:'Sobre',href:'index.html#sobre'},
+        {label:'Servus',href:'servus.html'},
+        {label:'Prontus',href:'prontus.html'},
+        {label:'Serviços',href:'index.html#servicos'},
+        {label:'Tecnologia',href:'index.html#tecnologia'},
+      ].map(item => (
+        <a key={item.label} href={item.href} style={{color:COLORS.ink,textDecoration:'none'}}>{item.label}</a>
+      ))}
     </div>
     <div style={{display:'flex',alignItems:'center',gap:10}}>
       <a href="https://docs.scandexplus.com.br/login" style={{color:COLORS.ink,textDecoration:'none',fontFamily:'Sora, system-ui',fontSize:13,fontWeight:600,padding:'11px 16px',borderRadius:999,border:`1px solid ${COLORS.line}`,whiteSpace:'nowrap'}}>Área do cliente</a>
