@@ -16,10 +16,10 @@ const COLORS = {
 // Headline copy variations
 const HEADLINES = {
   controle: {
-    eyebrow: 'Nova marca · Equipe sênior em digitalização',
-    h1: ['Gestão.', 'Memória.', 'Conformidade.'],
-    accent: 'Sob controle',
-    sub: 'Empresa recém-fundada por profissionais com mais de uma década digitalizando arquivos do setor público e privado. +1 milhão de documentos digitalizados na trajetória da equipe — agora com tecnologia própria.',
+    eyebrow: 'Software house · Produtos próprios · Operação real',
+    h1: ['Software.', 'Processos.', 'Informação.'],
+    accent: 'Tudo conectado',
+    sub: 'Criamos sistemas próprios e soluções sob medida para transformar rotinas complexas em operações rastreáveis. Gestão documental, serviços, inventário e acesso móvel trabalhando como uma única plataforma.',
   },
   papel: {
     eyebrow: 'Da gaveta · Para a nuvem · Sem perder o histórico',
@@ -195,7 +195,7 @@ const Nav = ({ T }) => {
     }}>
       <Wordmark size={20} accent={T.primary} />
       <div data-sdx="nav-links" style={{ display: 'flex', gap: 28, fontFamily: 'Sora, system-ui', fontSize: 13.5, fontWeight: 500, color: COLORS.ink }}>
-        {['Sobre', 'Serviços', 'ScandexPRO™', 'Stack'].map(x => (
+        {['Sobre', 'Soluções', 'Serviços', 'Tecnologia'].map(x => (
           <a key={x} style={{ color: 'inherit', textDecoration: 'none' }}>{x}</a>
         ))}
       </div>
@@ -301,7 +301,7 @@ const Hero = ({ T }) => {
                 fontFamily: 'Sora, system-ui', fontSize: 14.5, fontWeight: 600, cursor: 'pointer',
                 display: 'inline-flex', alignItems: 'center', gap: 8,
               }}>
-                Conhecer ScandexPRO™
+                Conhecer as soluções
                 <span style={{ color: T.primary }}>→</span>
               </button>
             </div>
@@ -422,8 +422,8 @@ const Metrics = ({ T }) => (
         {[
           { num: 1, suffix: 'M+', decimals: 0, label: 'Documentos digitalizados', sub: 'Soma de todas as experiências da equipe — público e privado' },
           { num: 12, suffix: '+',  decimals: 0, label: 'Anos de experiência', sub: 'Carreiras inteiras dedicadas a digitalização e GED' },
-          { num: 0, suffix: '',   decimals: 0, label: 'Auditorias perdidas', sub: 'Crises de auditoria que a equipe enfrentou e resolveu' },
-          { num: 100, suffix: '%', decimals: 0, label: 'Foco em GED', sub: 'Especialização do dia 1 — não é diversificação' },
+          { num: 3, suffix: '',   decimals: 0, label: 'Produtos integrados', sub: 'ScandexPRO, Servus e Prontus em evolução contínua' },
+          { num: 1, suffix: '', decimals: 0, label: 'Base operacional', sub: 'Uma fonte de dados para web, desktop e aplicativos móveis' },
         ].map((m, i) => (
           <Reveal key={i} delay={i * 100}>
             <div style={{
@@ -457,9 +457,9 @@ const Metrics = ({ T }) => (
         display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 0,
       }}>
         {[
-          { num: 24, suffix: 'h', label: 'Resposta inicial em casos críticos de auditoria' },
-          { num: 100, suffix: '%', label: 'Aderência a LGPD, retenção legal e normas setoriais' },
-          { num: 0,  suffix: '',  label: 'Vícios de software house genérica · nascemos especialistas' },
+          { num: 3, suffix: '', label: 'Experiências conectadas: web, desktop e mobile' },
+          { num: 1, suffix: '', label: 'Histórico operacional consolidado entre os produtos' },
+          { num: 0,  suffix: '',  label: 'Planilhas paralelas necessárias para integrar a operação' },
         ].map((m, i) => (
           <Reveal key={i} delay={i * 80}>
             <div style={{
