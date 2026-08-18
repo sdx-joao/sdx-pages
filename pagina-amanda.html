@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rua Saturno</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+  <script src="_ds_bundle.js"></script>
+  <style>*{box-sizing:border-box}html,body{margin:0;background:var(--bg-page)}#root{scroll-behavior:smooth}</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="HeroScene.jsx"></script>
+  <script type="text/babel" src="AddressScene.jsx"></script>
+  <script type="text/babel" src="GalleryScene.jsx"></script>
+  <script type="text/babel" src="ClosingScene.jsx"></script>
+  <script type="text/babel">
+    function App(){
+      return (
+        <div>
+          <HeroScene />
+          <AddressScene />
+          <GalleryScene />
+          <ClosingScene />
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+  </script>
+</body>
+</html>
