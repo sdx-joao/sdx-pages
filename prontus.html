@@ -44,11 +44,14 @@ const ACCENT = COLORS.blueLight;
 
 const Nav = () => (
   <nav style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'14px 24px',background:'rgba(255,255,255,0.85)',backdropFilter:'blur(20px) saturate(140%)',position:'sticky',top:12,zIndex:30,margin:'12px 12px 0',border:`1px solid ${COLORS.line}`,borderRadius:999,boxShadow:'0 8px 32px rgba(15,22,32,0.06)'}}>
-    <a href="index.html" style={{display:'flex',alignItems:'center',gap:12,textDecoration:'none'}}>
-      <Wordmark size={18} />
-      <span style={{width:1,height:20,background:COLORS.line}}></span>
-      <span style={{fontFamily:'Sora, system-ui',fontWeight:700,fontSize:15,color:COLORS.ink}}>Prontus</span>
-    </a>
+    <div className="sdx-language__brand-group notranslate" translate="no">
+      <a href="index.html" style={{display:'flex',alignItems:'center',gap:12,textDecoration:'none'}}>
+        <Wordmark size={18} />
+        <span style={{width:1,height:20,background:COLORS.line}}></span>
+        <span style={{fontFamily:'Sora, system-ui',fontWeight:700,fontSize:15,color:COLORS.ink}}>Prontus</span>
+      </a>
+      <div id="sdx-language-slot" />
+    </div>
     <div data-pr="nav-links" style={{display:'flex',gap:24,fontFamily:'Sora, system-ui',fontSize:13.5,fontWeight:500}}>
       {[
         {label:'Sobre',href:'index.html#sobre'},

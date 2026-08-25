@@ -193,7 +193,10 @@ const Nav = ({ T }) => {
       transition: 'all 0.3s ease',
       boxShadow: scrolled ? '0 8px 32px rgba(15,22,32,0.06)' : 'none',
     }}>
-      <Wordmark size={20} accent={T.primary} />
+      <div className="sdx-language__brand-group notranslate" translate="no">
+        <Wordmark size={20} accent={T.primary} />
+        <div id="sdx-language-slot" />
+      </div>
       <div data-sdx="nav-links" style={{ display: 'flex', gap: 28, fontFamily: 'Sora, system-ui', fontSize: 13.5, fontWeight: 500, color: COLORS.ink }}>
         {[
           { label: 'Sobre', href: '#sobre' },

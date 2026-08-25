@@ -77,9 +77,7 @@
     wrapper.setAttribute('translate', 'no');
     wrapper.innerHTML = `
       <button class="sdx-language__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Selecionar idioma">
-        <span class="sdx-language__globe" aria-hidden="true">◎</span>
         <span class="sdx-language__flag">${active.flag}</span>
-        <span class="sdx-language__code">${active.short}</span>
         <span class="sdx-language__chevron" aria-hidden="true">⌄</span>
       </button>
       <div class="sdx-language__menu" role="listbox" aria-label="Idiomas">
@@ -94,8 +92,8 @@
       </div>
     `;
 
-    const nav = document.querySelector('nav');
-    if (nav && nav.lastElementChild) nav.insertBefore(wrapper, nav.lastElementChild);
+    const slot = document.getElementById('sdx-language-slot');
+    if (slot) slot.appendChild(wrapper);
     else {
       wrapper.classList.add('is-floating');
       document.body.appendChild(wrapper);
