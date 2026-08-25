@@ -68,7 +68,9 @@
   }
 
   function makeSelector() {
-    if (document.querySelector('.sdx-language')) return;
+    if (document.querySelector('.sdx-language')) return true;
+    const slot = document.getElementById('sdx-language-slot');
+    if (document.getElementById('root') && !slot) return false;
 
     const activeCode = currentLanguage();
     const active = LANGUAGES.find((language) => language.code === activeCode) || LANGUAGES[0];
@@ -92,7 +94,6 @@
       </div>
     `;
 
-    const slot = document.getElementById('sdx-language-slot');
     if (slot) slot.appendChild(wrapper);
     else {
       wrapper.classList.add('is-floating');
@@ -116,6 +117,7 @@
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') close();
     });
+    return true;
   }
 
   window.googleTranslateElementInit = function () {
@@ -138,7 +140,13 @@
     setTranslationCookie(active);
     preserveLanguageOnLinks(active);
     updateMetadata(active);
-    makeSelector();
+    if (!makeSelector()) {
+      const root = document.getElementById('root');
+      const observer = new MutationObserver(() => {
+        if (makeSelector()) observer.disconnect();
+      });
+      observer.observe(root, { childList: true, subtree: true });
+    }
 
     const script = document.createElement('script');
     script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
