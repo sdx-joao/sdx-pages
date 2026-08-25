@@ -1,0 +1,20 @@
+.sdx-language{position:relative;z-index:80;font-family:Sora,system-ui,sans-serif;flex:0 0 auto}
+.sdx-language.is-floating{position:fixed;top:18px;right:18px}
+.sdx-language__trigger{height:42px;display:inline-flex;align-items:center;gap:7px;padding:0 12px;border:1px solid rgba(15,22,32,.11);border-radius:999px;background:rgba(255,255,255,.8);color:#0f1620;box-shadow:0 6px 22px rgba(15,22,32,.07);backdrop-filter:blur(18px);cursor:pointer}
+.sdx-language__trigger:hover{background:#fff;transform:translateY(-1px)}
+.sdx-language__globe{width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#eaf2f6;color:#3b7ba8;font-size:15px;font-weight:700}
+.sdx-language__flag{font-size:16px;line-height:1}
+.sdx-language__code{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.08em}
+.sdx-language__chevron{font-size:14px;color:#5a6573;transition:transform .2s}
+.sdx-language.is-open .sdx-language__chevron{transform:rotate(180deg)}
+.sdx-language__menu{position:absolute;top:calc(100% + 10px);right:0;width:224px;padding:8px;border:1px solid #e2e8ee;border-radius:18px;background:rgba(255,255,255,.97);box-shadow:0 22px 60px rgba(15,22,32,.16);backdrop-filter:blur(24px);opacity:0;visibility:hidden;transform:translateY(-6px) scale(.98);transform-origin:top right;transition:.18s ease}
+.sdx-language.is-open .sdx-language__menu{opacity:1;visibility:visible;transform:none}
+.sdx-language__title{padding:8px 10px 10px;color:#7a8490;font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.sdx-language__option{width:100%;display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:9px;padding:10px;border:0;border-radius:11px;background:transparent;color:#0f1620;text-align:left;cursor:pointer}
+.sdx-language__option:hover{background:#f6f7f9}
+.sdx-language__option.is-active{background:#eaf2f6;color:#2e6388}
+.sdx-language__option-flag{font-size:18px}.sdx-language__option-label{font-size:13px;font-weight:600}.sdx-language__option-code{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;opacity:.62}
+#sdx-google-translate,.skiptranslate,.goog-te-banner-frame{display:none!important}
+body{top:0!important}
+@media(max-width:960px){.sdx-language{position:fixed;top:74px;right:10px}.sdx-language__flag,.sdx-language__globe{display:none}.sdx-language__trigger{height:38px;padding:0 10px;gap:4px;background:rgba(255,255,255,.94)}.sdx-language__menu{position:fixed;top:120px;right:10px}}
+@media(max-width:560px){.sdx-language{top:66px}.sdx-language__trigger{height:36px}.sdx-language__menu{top:108px}}
