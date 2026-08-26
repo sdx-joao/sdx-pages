@@ -2,10 +2,10 @@
   'use strict';
 
   const LANGUAGES = [
-    { code: 'pt', short: 'PT', label: 'Português', flag: '🇧🇷' },
-    { code: 'en', short: 'EN', label: 'English', flag: '🇬🇧' },
-    { code: 'de', short: 'DE', label: 'Deutsch', flag: '🇩🇪' },
-    { code: 'it', short: 'IT', label: 'Italiano', flag: '🇮🇹' },
+    { code: 'pt', short: 'PT', label: 'Português', flag: 'assets/flags/br.png' },
+    { code: 'en', short: 'EN', label: 'English', flag: 'assets/flags/gb.png' },
+    { code: 'de', short: 'DE', label: 'Deutsch', flag: 'assets/flags/de.png' },
+    { code: 'it', short: 'IT', label: 'Italiano', flag: 'assets/flags/it.png' },
   ];
   const STORAGE_KEY = 'sdx-site-language';
 
@@ -79,14 +79,14 @@
     wrapper.setAttribute('translate', 'no');
     wrapper.innerHTML = `
       <button class="sdx-language__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Selecionar idioma">
-        <span class="sdx-language__flag">${active.flag}</span>
+        <img class="sdx-language__flag" src="${active.flag}" alt="${active.short}" />
         <span class="sdx-language__chevron" aria-hidden="true">⌄</span>
       </button>
       <div class="sdx-language__menu" role="listbox" aria-label="Idiomas">
         <div class="sdx-language__title">Idioma · Language</div>
         ${LANGUAGES.map((language) => `
           <button class="sdx-language__option${language.code === activeCode ? ' is-active' : ''}" type="button" role="option" aria-selected="${language.code === activeCode}" data-language="${language.code}">
-            <span class="sdx-language__option-flag">${language.flag}</span>
+            <img class="sdx-language__option-flag" src="${language.flag}" alt="" />
             <span class="sdx-language__option-label">${language.label}</span>
             <span class="sdx-language__option-code">${language.short}</span>
           </button>
