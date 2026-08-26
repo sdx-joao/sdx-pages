@@ -167,7 +167,7 @@ const CountUp = ({ to, suffix = '', prefix = '', decimals = 0, style }) => {
     return () => obs.disconnect();
   }, [to]);
   const formatted = decimals > 0 ? n.toFixed(decimals) : Math.floor(n).toLocaleString('pt-BR');
-  return <span ref={ref} style={style}>{prefix}{formatted}{suffix}</span>;
+  return <span ref={ref} className="notranslate" translate="no" style={style}>{prefix}{formatted}{suffix}</span>;
 };
 
 // ─────────────────────────────────────────────────────────────────────
