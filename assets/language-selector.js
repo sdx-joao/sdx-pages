@@ -4,8 +4,11 @@
   const LANGUAGES = [
     { code: 'pt', short: 'PT', label: 'Português', flag: 'assets/flags/br.png' },
     { code: 'en', short: 'EN', label: 'English', flag: 'assets/flags/gb.png' },
+    { code: 'es', short: 'ES', label: 'Español', flag: 'assets/flags/es.png' },
+    { code: 'fr', short: 'FR', label: 'Français', flag: 'assets/flags/fr.png' },
     { code: 'de', short: 'DE', label: 'Deutsch', flag: 'assets/flags/de.png' },
     { code: 'it', short: 'IT', label: 'Italiano', flag: 'assets/flags/it.png' },
+    { code: 'zh-TW', short: '繁中', label: '繁體中文', flag: 'assets/flags/tw.png' },
   ];
   const STORAGE_KEY = 'sdx-site-language';
 
@@ -46,13 +49,13 @@
     const page = window.location.pathname.split('/').pop() || 'index.html';
     const titles = {
       'index.html': {
-        en: 'Scandex+ — Software and digital management', de: 'Scandex+ — Software und digitales Management', it: 'Scandex+ — Software e gestione digitale',
+        en: 'Scandex+ — Software and digital management', es: 'Scandex+ — Software y gestión digital', fr: 'Scandex+ — Logiciels et gestion numérique', de: 'Scandex+ — Software und digitales Management', it: 'Scandex+ — Software e gestione digitale', 'zh-TW': 'Scandex+ — 軟體與數位管理',
       },
       'servus.html': {
-        en: 'Servus — Work orders and inventory app | Scandex+', de: 'Servus — App für Serviceaufträge und Inventar | Scandex+', it: 'Servus — App per ordini di servizio e inventario | Scandex+',
+        en: 'Servus — Work orders and inventory app | Scandex+', es: 'Servus — App de órdenes de servicio e inventario | Scandex+', fr: 'Servus — Application de bons de service et inventaire | Scandex+', de: 'Servus — App für Serviceaufträge und Inventar | Scandex+', it: 'Servus — App per ordini di servizio e inventario | Scandex+', 'zh-TW': 'Servus — 服務單與庫存應用程式 | Scandex+',
       },
       'prontus.html': {
-        en: 'Prontus — Digital medical records app | Scandex+', de: 'Prontus — App für digitale Patientenakten | Scandex+', it: 'Prontus — App per cartelle cliniche digitali | Scandex+',
+        en: 'Prontus — Digital medical records app | Scandex+', es: 'Prontus — App de historias clínicas digitales | Scandex+', fr: 'Prontus — Application de dossiers médicaux numériques | Scandex+', de: 'Prontus — App für digitale Patientenakten | Scandex+', it: 'Prontus — App per cartelle cliniche digitali | Scandex+', 'zh-TW': 'Prontus — 數位病歷應用程式 | Scandex+',
       },
     };
     if (titles[page] && titles[page][active]) document.title = titles[page][active];
@@ -123,7 +126,7 @@
   window.googleTranslateElementInit = function () {
     new window.google.translate.TranslateElement({
       pageLanguage: 'pt',
-      includedLanguages: 'pt,en,de,it',
+      includedLanguages: 'pt,en,es,fr,de,it,zh-TW',
       autoDisplay: false,
     }, 'sdx-google-translate');
   };
