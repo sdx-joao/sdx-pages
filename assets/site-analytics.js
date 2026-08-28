@@ -4,22 +4,6 @@
   var measurementId = 'G-N46CEK4ZCT';
   var consentKey = 'sdx_analytics_consent';
 
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-
-  window.gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    wait_for_update: 500
-  });
-  window.gtag('js', new Date());
-  window.gtag('config', measurementId, {
-    anonymize_ip: true,
-    allow_google_signals: false
-  });
-
   function updateConsent(value) {
     window.gtag('consent', 'update', {
       analytics_storage: value,
