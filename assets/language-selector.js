@@ -57,6 +57,9 @@
       'prontus.html': {
         en: 'Prontus — Digital medical records app | Scandex+', es: 'Prontus — App de historias clínicas digitales | Scandex+', fr: 'Prontus — Application de dossiers médicaux numériques | Scandex+', de: 'Prontus — App für digitale Patientenakten | Scandex+', it: 'Prontus — App per cartelle cliniche digitali | Scandex+', 'zh-TW': 'Prontus — 數位病歷應用程式 | Scandex+',
       },
+      'operacoes.html': {
+        en: 'SDX Operations — Work orders, inventory and assets', es: 'SDX Operaciones — Órdenes de servicio, inventario y activos', fr: 'SDX Opérations — Bons de service, inventaire et actifs', de: 'SDX Operations — Serviceaufträge, Inventar und Anlagen', it: 'SDX Operazioni — Ordini di servizio, inventario e beni', 'zh-TW': 'SDX 營運 — 服務單、庫存與資產',
+      },
     };
     if (titles[page] && titles[page][active]) document.title = titles[page][active];
     LANGUAGES.forEach((language) => {

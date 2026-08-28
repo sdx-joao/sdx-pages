@@ -200,6 +200,7 @@ const Nav = ({ T }) => {
       <div data-sdx="nav-links" style={{ display: 'flex', gap: 28, fontFamily: 'Sora, system-ui', fontSize: 13.5, fontWeight: 500, color: COLORS.ink }}>
         {[
           { label: 'Sobre', href: '#sobre' },
+          { label: 'SDX Operações', href: 'operacoes.html' },
           { label: 'Servus', href: 'servus.html' },
           { label: 'Prontus', href: 'prontus.html' },
           { label: 'Serviços', href: '#servicos' },
