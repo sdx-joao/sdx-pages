@@ -20,11 +20,6 @@
     allow_google_signals: false
   });
 
-  var tag = document.createElement('script');
-  tag.async = true;
-  tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
-  document.head.appendChild(tag);
-
   function updateConsent(value) {
     window.gtag('consent', 'update', {
       analytics_storage: value,
