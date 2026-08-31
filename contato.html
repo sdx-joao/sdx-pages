@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F4F1EC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1E232D" media="(prefers-color-scheme: dark)">
+  <meta name="format-detection" content="telephone=no">
+  <title>Contato — Dr. Jorge Patrick Rocha</title>
+  <meta name="description" content="Agende uma consulta com o Dr. Jorge Patrick Rocha. WhatsApp, telefone, e-mail e endereço do consultório.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-screen-label="Contato">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-mark" aria-label="Dr. Jorge Patrick — início">
+        <img src="assets/logos/logo-horizontal-completa.png" alt="Dr. Jorge Patrick Rocha — Oftalmologia">
+      </a>
+      <nav class="nav-primary" aria-label="Principal">
+        <a href="index.html" data-nav="index">Início</a>
+        <a href="sobre.html" data-nav="sobre">Sobre</a>
+        <a href="tratamentos.html" data-nav="tratamentos">Tratamentos</a>
+        <a href="blog.html" data-nav="blog">Blog</a>
+        <a href="contato.html" data-nav="contato">Contato</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://wa.me/5511999999999" class="btn btn-primary" target="_blank" rel="noopener">
+          Agendar consulta <span class="arrow">→</span>
+        </a>
+        <button class="menu-toggle" aria-label="Abrir menu"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" aria-label="Menu mobile">
+    <a href="index.html">Início</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="tratamentos.html">Tratamentos</a>
+    <a href="blog.html">Blog</a>
+    <a href="contato.html">Contato</a>
+    <a href="https://wa.me/5511999999999" class="btn btn-primary mobile-cta" target="_blank" rel="noopener">Agendar consulta <span class="arrow">→</span></a>
+  </nav>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb reveal"><a href="index.html">Início</a> <span>/</span> <span>Contato</span></div>
+        <div class="eyebrow reveal reveal-delay-1">Fale comigo</div>
+        <h1 class="display reveal reveal-delay-2">Agendar é simples.</h1>
+        <p class="lead reveal reveal-delay-3">
+          O caminho mais rápido é pelo WhatsApp — eu mesmo respondo, normalmente
+          no mesmo dia. Se preferir, deixe sua mensagem pelo formulário ou ligue.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+
+            <div class="contact-item">
+              <span class="lbl">WhatsApp · Recomendado</span>
+              <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="val">(11) 99999-9999</a>
+              <span class="sub">Resposta normalmente no mesmo dia.</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="lbl">Telefone</span>
+              <a href="tel:+5511999999999" class="val">(11) 99999-9999</a>
+              <span class="sub">Segunda a sexta · 9h às 18h.</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="lbl">E-mail</span>
+              <a href="mailto:contato@drjorgepatrick.com.br" class="val">contato@drjorgepatrick.com.br</a>
+              <span class="sub">Para pedidos formais e documentos.</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="lbl">Endereço do consultório</span>
+              <span class="val">Av. Exemplo, 1000</span>
+              <span class="sub">Sala 101 · Bairro · Cidade · Estado · CEP 00000-000</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="lbl">Instagram</span>
+              <a href="https://instagram.com/drjorgepatrickrocha" target="_blank" rel="noopener" class="val">@drjorgepatrickrocha</a>
+              <span class="sub">Conteúdo educativo sobre saúde ocular.</span>
+            </div>
+
+          </div>
+
+          <div class="reveal reveal-delay-1">
+            <h2 class="display display-md" style="margin-bottom: 16px;">Prefere deixar uma mensagem?</h2>
+            <p class="lead" style="margin-bottom: 32px;">
+              Preencha o formulário abaixo e eu retorno em até 24 horas úteis.
+            </p>
+            <form class="form" onsubmit="event.preventDefault(); const b=this.querySelector('button'); b.textContent='Enviado ✓'; b.disabled=true;">
+              <div class="form-row">
+                <div class="field">
+                  <label for="nome">Nome completo</label>
+                  <input id="nome" name="nome" type="text" required>
+                </div>
+                <div class="field">
+                  <label for="tel">Telefone</label>
+                  <input id="tel" name="tel" type="tel" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" required>
+              </div>
+              <div class="field">
+                <label for="assunto">Sobre o quê?</label>
+                <select id="assunto" name="assunto">
+                  <option>Agendar consulta</option>
+                  <option>Cirurgia de catarata</option>
+                  <option>Cirurgia refrativa</option>
+                  <option>Outra dúvida clínica</option>
+                  <option>Convênios e particular</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="msg">Mensagem (opcional)</label>
+                <textarea id="msg" name="msg" placeholder="Conta um pouco do que tá acontecendo, se quiser..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: max-content;">
+                Enviar mensagem <span class="arrow">→</span>
+              </button>
+              <p style="font-size: 13px; color: var(--text-soft); margin-top: 8px;">
+                Seus dados são protegidos conforme a LGPD. Não compartilhamos com terceiros.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="warm">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Como chegar</div>
+            <h2 class="display display-md">Consultório.</h2>
+          </div>
+          <p class="lead">
+            Localização central, com estacionamento próximo e acesso facilitado
+            para pacientes com mobilidade reduzida.
+          </p>
+        </div>
+        <div class="map-placeholder reveal">
+          <div class="map-pin"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logos/logo-vertical-branco.png" alt="Dr. Jorge Patrick Rocha — Oftalmologia">
+          <p>Oftalmologia moderna, técnica apurada e cuidado humano. Atendimento particular e principais convênios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre o Dr. Jorge</a></li>
+            <li><a href="tratamentos.html">Tratamentos</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tratamentos</h4>
+          <ul>
+            <li><a href="tratamentos.html#catarata">Cirurgia de catarata</a></li>
+            <li><a href="tratamentos.html#refrativa">Cirurgia refrativa</a></li>
+            <li><a href="tratamentos.html#glaucoma">Glaucoma</a></li>
+            <li><a href="tratamentos.html#retina">Retina</a></li>
+            <li><a href="tratamentos.html#consulta">Consulta completa</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
+            <li><a href="mailto:contato@drjorgepatrick.com.br">contato@drjorgepatrick.com.br</a></li>
+            <li><a href="https://instagram.com/drjorgepatrickrocha" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Dr. Jorge Patrick Rocha · CRM 000000</span>
+        <span>Site desenvolvido com propósito · Conforme CFM e LGPD</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5511999999999" class="whatsapp-fab" aria-label="Falar no WhatsApp" target="_blank" rel="noopener">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+  </a>
+
+  <script src="assets/main.js"></script>
+  <script src="assets/tweaks.js"></script>
+</body>
+</html>
