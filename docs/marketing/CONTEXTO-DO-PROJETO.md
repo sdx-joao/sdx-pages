@@ -21,6 +21,24 @@ O plano completo de aquisição, métricas, campanhas, rotina e priorização es
 - Manter prospecção orgânica como motor principal enquanto a mídia paga gera dados.
 - Não publicar, fazer deploy, criar campanha ou gastar verba sem solicitação explícita do responsável.
 
+## Definições comerciais confirmadas
+
+- Região inicial: Duque de Caxias e bairros próximos.
+- Responsável pelos contatos: João Marcos, CEO da Scandex Plus.
+- Diagnóstico inicial: gratuito.
+- Teste inicial: gratuito por até dois meses; limites de usuários/módulos e critérios de sucesso ainda precisam ser definidos por proposta.
+- Implantação estimada: de R$ 2.000 a R$ 8.000, conforme o escopo.
+- Prazo de implantação: de um a seis meses, conforme a complexidade.
+- Capacidade inicial: uma implantação por vez.
+- Prazo máximo para a primeira resposta comercial: 24 horas.
+- Modelo: desenvolvimento e configuração conforme a necessidade de cada cliente.
+- Implantação: web ou local; no modelo local, o servidor pode ser do cliente ou fornecido/locado pela Scandex Plus.
+- Mensalidade: formada sob proposta conforme software, infraestrutura, eventual locação de servidor, atualizações e suporte.
+- Referências iniciais: R$ 690/mês em servidor do cliente; R$ 890/mês em ambiente web gerenciado; R$ 1.490/mês com servidor local locado pela Scandex Plus.
+- Todos os valores comerciais de referência são sem impostos; os tributos serão calculados e discriminados separadamente na proposta.
+- Suporte básico estimado: até duas horas remotas por mês; excedente sugerido de R$ 150/hora.
+- Os valores são hipóteses para validação e devem ser recalculados com custos reais, impostos e margem dos primeiros contratos.
+
 ## Produtos identificados
 
 - ScandexPRO
@@ -28,17 +46,18 @@ O plano completo de aquisição, métricas, campanhas, rotina e priorização es
 - Servus
 - Prontus
 
-## Achados prioritários da auditoria
+## Situação técnica atual
 
-1. O número oficial foi confirmado como **+55 (21) 96721-6375** e o site foi padronizado em 26/09/2026.
-2. Alguns CTAs não têm ação ou levam para canal incorreto.
-3. Parte dos CTAs abertos por JavaScript não entra na mensuração atual de links.
-4. O formulário preserva apenas parte dos parâmetros UTM.
-5. Ainda faltam Google Ads/Meta Pixel; GA4 e consentimento já existem.
-6. `robots.txt` e `sitemap.xml` não estavam disponíveis.
-7. Há lacunas de canonical/Open Graph em páginas importantes.
-8. A home carrega Babel/React em modo pouco adequado para produção e imagens pesadas.
+1. O número oficial **+55 (21) 96721-6375** está padronizado.
+2. CTAs e links de e-mail foram corrigidos.
+3. Os eventos `whatsapp_intent` e `lead_form_submit` foram separados.
+4. UTMs e click IDs são preservados com respeito ao consentimento.
+5. `robots.txt`, `sitemap.xml`, canonical e Open Graph foram implementados.
+6. A landing de SDX Operações está publicada.
+7. GA4 está instalado, mas ainda precisa ser validado no DebugView.
+8. A conversão do Google Ads ainda não foi configurada; Meta não será usado no microteste.
+9. A home ainda carrega Babel/React no navegador e imagens grandes.
 
 ## Próxima etapa sugerida
 
-Auditar o código local contra esta lista, separar correções que não dependem de decisão comercial e preparar a primeira alteração segura. Não escolher unilateralmente qual telefone é o oficial.
+Definir limites e critérios do teste gratuito, custos mínimos, margem, componentes da mensalidade e suporte. Em paralelo, criar o CRM, validar GA4 e o fluxo completo, organizar a rotina comercial e iniciar prospecção orgânica antes de gastar os R$ 100.

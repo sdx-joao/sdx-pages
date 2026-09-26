@@ -19,11 +19,41 @@ A empresa vende software, digitalização, automação e gestão operacional. O 
 
 Software sob medida, digitalização/GED, automação, consultoria e sustentação.
 
+### Modelo comercial e técnico
+
+A solução será desenvolvida e configurada de acordo com a necessidade de cada cliente, com alta capacidade de adaptação ao processo existente. A implantação poderá ser web ou local. Na modalidade local, o cliente poderá usar servidor próprio ou contratar infraestrutura fornecida/locada pela Scandex Plus.
+
+A proposta deverá separar com clareza:
+
+- desenvolvimento, configuração e implantação;
+- módulos, usuários, unidades e integrações;
+- infraestrutura web ou local;
+- eventual locação de servidor;
+- atualização, suporte e sustentação;
+- responsabilidades do cliente e da Scandex Plus;
+- requisitos e controles de acesso, backup, recuperação e disponibilidade.
+
+Segurança e eficiência são objetivos do projeto e devem ser descritas por controles e resultados verificáveis, não como garantias absolutas.
+
 ### Primeira oferta para mídia
 
 > Diagnóstico inicial de 20 minutos para mapear ordens de serviço, inventário, estoque e controles paralelos de clínicas e hospitais.
 
-Não anunciar todo o portfólio simultaneamente. Confirmar internamente diagnóstico sem compromisso, demonstração com dados fictícios e possibilidade de piloto.
+O diagnóstico e o teste inicial foram confirmados como gratuitos. O teste pode durar até dois meses. A implantação estimada varia de **R$ 2.000 a R$ 8.000** e pode levar de um a seis meses, conforme o escopo e a complexidade. A capacidade inicial é de uma implantação por vez. O atendimento será feito por **João Marcos, CEO**, com primeira resposta em até 24 horas, para organizações de **Duque de Caxias e bairros próximos**.
+
+Não anunciar todo o portfólio simultaneamente. Os limites e os critérios de sucesso do teste gratuito ainda precisam ser definidos antes da campanha. A mensalidade será formada sob proposta conforme software, infraestrutura, eventual locação de servidor, atualizações e suporte. As estimativas de custo, margem e suporte deverão ser validadas com os primeiros contratos; a quantidade de testes simultâneos ainda precisa ser definida.
+
+Para validação inicial, usar como referência comercial:
+
+- local no servidor do cliente: a partir de R$ 690/mês;
+- web gerenciada pela Scandex: a partir de R$ 890/mês;
+- servidor local locado pela Scandex: a partir de R$ 1.490/mês;
+- implantação: R$ 2.000 a R$ 8.000;
+- teste gratuito limitado aos módulos existentes, sem desenvolvimento sob medida, integração ou migração completa.
+
+Todos os valores são apresentados **sem impostos**. Os tributos incidentes deverão ser calculados conforme o regime fiscal aplicável e discriminados separadamente na proposta antes do aceite.
+
+Os valores são hipóteses conservadoras e devem ser recalculados com os custos reais dos primeiros clientes. A planilha de formação de preço deverá reservar aproximadamente 50% para administração, comercial, risco, reinvestimento e margem; os impostos serão adicionados separadamente ao preço-base.
 
 ---
 
@@ -35,22 +65,22 @@ Não anunciar todo o portfólio simultaneamente. Confirmar internamente diagnós
 - formulário que abre WhatsApp estruturado;
 - GA4 G-N46CEK4ZCT instalado;
 - consentimento negado por padrão, com aceitar/recusar;
-- eventos generate_lead e whatsapp_click previstos;
+- eventos `whatsapp_intent` e `lead_form_submit` implementados;
 - aviso para não inserir dados de pacientes;
 - canonical e Open Graph em SDX Operações;
 - visual e texto profissionais.
 
-### Correções antes dos anúncios
+### Situação após as primeiras correções
 
-1. **Contato unificado.** O número oficial confirmado é (21) 96721-6375; links e páginas foram padronizados em 26/09/2026.
-2. **Corrigir CTAs da home.** “Conhecer as soluções” e “contato@scandexplus.com.br” aparecem como botões sem destino verificável.
-3. **Corrigir e-mail.** Em Servus e Prontus, o texto do e-mail aponta para WhatsApp.
-4. **Medir botões React.** O analytics observa links com wa.me/whatsapp.com, mas os CTAs principais usam window.open. Converter para links ou emitir evento explícito.
-5. **Separar intenção de lead real.** Clique/submit do WhatsApp não é lead qualificado.
-6. **Preservar atribuição.** O formulário leva somente utm_campaign ao WhatsApp.
-7. **Completar mídia.** Não foram detectados Meta Pixel nem tag específica do Google Ads.
-8. **SEO.** robots.txt e sitemap.xml não foram encontrados. Home, Servus e Prontus não mostraram canonical/Open Graph completos.
-9. **Desempenho.** A home carrega React de desenvolvimento, Babel, vários scripts e imagens grandes. Para mídia, preferir landing estática e leve.
+1. **Concluído — contato:** número oficial (21) 96721-6375 padronizado no site.
+2. **Concluído — CTAs:** links de soluções, WhatsApp e e-mail corrigidos.
+3. **Concluído — mensuração de intenção:** CTAs React convertidos em links e evento `whatsapp_intent` implementado.
+4. **Concluído — formulário:** evento `lead_form_submit` separado de lead qualificado.
+5. **Concluído — atribuição:** UTMs, click IDs, landing page e primeira visita preservados com respeito ao consentimento.
+6. **Concluído — SEO técnico básico:** `robots.txt`, `sitemap.xml`, canonical e Open Graph adicionados.
+7. **Pendente — validação:** testar eventos no GA4 DebugView e o fluxo completo em celular e desktop.
+8. **Pendente — mídia:** instalar/configurar conversão do Google Ads somente quando a conta da campanha estiver pronta. Meta Pixel não será usado no microteste.
+9. **Pendente — desempenho:** a home ainda carrega React de desenvolvimento, Babel, vários scripts e imagens grandes. A landing estática de SDX Operações deve ser priorizada na mídia.
 
 ### Eventos necessários
 
@@ -398,7 +428,7 @@ Não investir antes de unificar o telefone, corrigir os CTAs e testar o formulá
 
 - uma campanha de pesquisa;
 - uma landing page: SDX Operações;
-- uma região compatível com a capacidade comercial da empresa;
+- segmentação inicial em Duque de Caxias e bairros próximos, sem expansão automática;
 - somente rede de pesquisa do Google;
 - R$ 10/dia por 10 dias ou R$ 7/dia por 14 dias;
 - correspondência exata e de frase;
@@ -534,21 +564,21 @@ Um cliente pode superar R$ 1.000/mês. O caso precisa mostrar CPQL, diagnóstico
 ## Checklist pré-mídia
 
 - [x] contato unificado;
-- [ ] CTAs/e-mail funcionando;
-- [ ] formulário sem dados de pacientes;
+- [x] CTAs/e-mail funcionando;
+- [x] formulário sem dados de pacientes;
 - [ ] GA4 validado;
 - [ ] Google Ads tag instalada;
-- [ ] Pixel somente se Meta for usado;
-- [ ] intenção separada de qualificado;
-- [ ] UTMs/click IDs preservados;
+- [x] Pixel adiado; Meta não será usado no microteste;
+- [x] intenção separada de qualificado;
+- [x] UTMs/click IDs preservados;
 - [ ] CRM pronto;
-- [ ] qualificação definida;
+- [x] qualificação definida;
 - [ ] oferta/capacidade confirmadas;
-- [ ] landing publicada;
+- [x] landing publicada;
 - [ ] privacidade revisada;
 - [ ] negativas revisadas;
 - [ ] orçamento separado;
-- [ ] responsável comercial definido;
+- [x] responsável comercial definido: João Marcos;
 - [ ] rotina agendada.
 
 ## Fontes oficiais
