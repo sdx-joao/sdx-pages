@@ -216,16 +216,16 @@ const Nav = ({ T }) => {
           padding: '11px 16px', borderRadius: 999, border: `1px solid ${COLORS.line}`,
           whiteSpace: 'nowrap',
         }}>Área do cliente</a>
-        <button onClick={() => window.open('https://wa.me/5521984426872', '_blank', 'noopener,noreferrer')} style={{
+        <a href="https://wa.me/5521967216375" target="_blank" rel="noopener noreferrer" style={{
           background: T.primary, color: 'white', border: 'none',
           padding: '11px 20px', borderRadius: 999,
           fontFamily: 'Sora, system-ui', fontSize: 13, fontWeight: 600,
-          cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8,
+          cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none',
           boxShadow: `0 4px 16px ${T.primary}40`,
         }}>
           <WhatsappIcon size={14} />
           <span>Falar agora</span>
-        </button>
+        </a>
       </div>
     </nav>
   );
@@ -291,11 +291,11 @@ const Hero = ({ T }) => {
             </p>
 
             <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
-              <button onClick={() => window.open('https://wa.me/5521984426872', '_blank', 'noopener,noreferrer')} style={{
+              <a href="https://wa.me/5521967216375" target="_blank" rel="noopener noreferrer" style={{
                 background: T.primary, color: 'white', border: 'none',
                 padding: '17px 26px', borderRadius: 12,
                 fontFamily: 'Sora, system-ui', fontSize: 14.5, fontWeight: 600,
-                cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10,
+                cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none',
                 boxShadow: `0 8px 22px ${T.primary}33`,
                 transition: 'transform 0.2s',
               }}
@@ -304,16 +304,16 @@ const Hero = ({ T }) => {
               >
                 <WhatsappIcon size={17} />
                 Falar no WhatsApp
-              </button>
-              <button style={{
+              </a>
+              <a href="#solucoes" style={{
                 background: 'white', color: COLORS.ink, border: `1px solid ${COLORS.line}`,
                 padding: '17px 26px', borderRadius: 12,
                 fontFamily: 'Sora, system-ui', fontSize: 14.5, fontWeight: 600, cursor: 'pointer',
-                display: 'inline-flex', alignItems: 'center', gap: 8,
+                display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none',
               }}>
                 Conhecer as soluções
                 <span style={{ color: T.primary }}>→</span>
-              </button>
+              </a>
             </div>
           </Reveal>
         </div>

@@ -3,6 +3,42 @@
 
   var measurementId = 'G-N46CEK4ZCT';
   var consentKey = 'sdx_analytics_consent';
+  var attributionKey = 'sdx_first_touch_attribution';
+  var attributionFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'gbraid', 'wbraid', 'fbclid'];
+
+  function hasCampaignAttribution(attribution) {
+    return attributionFields.some(function (field) { return Boolean(attribution && attribution[field]); });
+  }
+
+  function getFirstTouchAttribution() {
+    var consent = null;
+    var stored = null;
+    try {
+      consent = window.localStorage.getItem(consentKey);
+      if (consent === 'granted') stored = window.localStorage.getItem(attributionKey);
+    } catch (_) {}
+    if (stored) {
+      try { stored = JSON.parse(stored); } catch (_) { stored = null; }
+    }
+
+    var params = new URLSearchParams(window.location.search);
+    var attribution = {
+      landing_page: window.location.href.split('#')[0],
+      first_visit_at: new Date().toISOString()
+    };
+    attributionFields.forEach(function (field) {
+      var value = params.get(field);
+      if (value) attribution[field] = value;
+    });
+
+    if (stored && (hasCampaignAttribution(stored) || !hasCampaignAttribution(attribution))) return stored;
+    if (consent === 'granted') {
+      try { window.localStorage.setItem(attributionKey, JSON.stringify(attribution)); } catch (_) {}
+    }
+    return attribution;
+  }
+
+  window.SDXAttribution = getFirstTouchAttribution();
 
   function updateConsent(value) {
     window.gtag('consent', 'update', {
@@ -14,7 +50,11 @@
   }
 
   function rememberConsent(value) {
-    try { window.localStorage.setItem(consentKey, value); } catch (_) {}
+    try {
+      window.localStorage.setItem(consentKey, value);
+      if (value === 'granted') window.localStorage.setItem(attributionKey, JSON.stringify(window.SDXAttribution));
+      else window.localStorage.removeItem(attributionKey);
+    } catch (_) {}
     updateConsent(value === 'granted' ? 'granted' : 'denied');
     var banner = document.getElementById('sdx-cookie-banner');
     if (banner) banner.remove();
@@ -29,20 +69,16 @@
     banner.id = 'sdx-cookie-banner';
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Preferências de privacidade');
-    banner.innerHTML = '<p>Usamos métricas anônimas para entender o desempenho do site e melhorar nossas campanhas. Nenhum dado preenchido nos formulários é enviado ao Google. <a href="privacy-policy.html">Política de privacidade</a>.</p><div class="sdx-cookie-actions"><button id="sdx-cookie-reject" type="button">Recusar</button><button id="sdx-cookie-accept" type="button">Aceitar métricas</button></div>';
+    banner.innerHTML = '<p>Usamos métricas anônimas para entender o desempenho do site e melhorar nossas campanhas. Nenhum dado preenchido nos formulários é enviado ao Google. <a href="politica-de-privacidade.html">Política de privacidade</a>.</p><div class="sdx-cookie-actions"><button id="sdx-cookie-reject" type="button">Recusar</button><button id="sdx-cookie-accept" type="button">Aceitar métricas</button></div>';
     document.body.appendChild(banner);
     document.getElementById('sdx-cookie-reject').addEventListener('click', function () { rememberConsent('denied'); });
     document.getElementById('sdx-cookie-accept').addEventListener('click', function () { rememberConsent('granted'); });
   }
 
   function trackWhatsApp(source) {
-    window.gtag('event', 'generate_lead', {
+    window.gtag('event', 'whatsapp_intent', {
       method: 'whatsapp',
       lead_source: source || 'link',
-      page_path: window.location.pathname
-    });
-    window.gtag('event', 'whatsapp_click', {
-      link_location: source || 'link',
       page_path: window.location.pathname
     });
   }
@@ -53,7 +89,13 @@
   }, true);
 
   document.addEventListener('submit', function (event) {
-    if (event.target && event.target.id === 'lead-form') trackWhatsApp('diagnostic_form');
+    if (event.target && event.target.id === 'lead-form') {
+      window.gtag('event', 'lead_form_submit', {
+        form_id: 'lead-form',
+        page_path: window.location.pathname
+      });
+      trackWhatsApp('diagnostic_form');
+    }
   }, true);
 
   var storedConsent = null;

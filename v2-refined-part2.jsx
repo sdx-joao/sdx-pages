@@ -107,7 +107,7 @@ const ScandexPro = ({ T }) => {
   ];
 
   return (
-    <section data-sdx="pro-section" style={{ padding: '120px 40px', background: COLORS.paper, position: 'relative', overflow: 'hidden' }}>
+    <section id="solucoes" data-sdx="pro-section" style={{ padding: '120px 40px', background: COLORS.paper, position: 'relative', overflow: 'hidden' }}>
       <Pattern surface="light" opacity={T.patternIntensity * 0.18} scale={1.6} />
       <div style={{ maxWidth: 1400, margin: '0 auto', position: 'relative' }}>
         <Reveal>
@@ -529,23 +529,23 @@ const CTA = ({ T }) => (
             Pode ser um arquivo físico, uma planilha que cresceu demais ou uma rotina que não conversa com os outros sistemas. Entendemos o cenário antes de propor produto, integração ou desenvolvimento sob medida.
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
-            <button onClick={() => window.open('https://wa.me/5521984426872', '_blank', 'noopener,noreferrer')} style={{
+            <a href="https://wa.me/5521967216375" target="_blank" rel="noopener noreferrer" style={{
               background: 'white', color: T.primary, border: 'none',
               padding: '20px 32px', borderRadius: 12,
               fontFamily: 'Sora, system-ui', fontSize: 15.5, fontWeight: 700,
-              cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 12,
+              cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none',
               boxShadow: '0 12px 40px rgba(0,0,0,0.18)',
             }}>
               <WhatsappIcon size={18} />
               Falar no WhatsApp
               <span>→</span>
-            </button>
-            <button style={{
+            </a>
+            <a href="mailto:contato@scandexplus.com.br" style={{
               background: 'rgba(255,255,255,0.12)', color: 'white',
               border: '1px solid rgba(255,255,255,0.3)',
               padding: '20px 32px', borderRadius: 12,
-              fontFamily: 'Sora, system-ui', fontSize: 15.5, fontWeight: 600, cursor: 'pointer',
-            }}>contato@scandexplus.com.br</button>
+              fontFamily: 'Sora, system-ui', fontSize: 15.5, fontWeight: 600, cursor: 'pointer', textDecoration: 'none',
+            }}>contato@scandexplus.com.br</a>
           </div>
           <div style={{ marginTop: 22, fontFamily: 'JetBrains Mono, monospace', fontSize: 12.5, color: 'rgba(255,255,255,0.7)' }}>
             +55 (21) 96721-6375 · seg-sex 9h-18h
